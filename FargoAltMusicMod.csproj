@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\tModLoader.targets" />
+  <PropertyGroup>
+    <AssemblyName>FargoAltMusicMod</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="icon.png" />
+    <None Remove="WorkshopIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NPCs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FargowiltasSouls">
+      <HintPath>C:\Users\jackl\Downloads\FargowiltasSouls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

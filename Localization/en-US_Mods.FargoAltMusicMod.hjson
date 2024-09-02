@@ -1,0 +1,252 @@
+Configs: {
+	MusicConfig: {
+		DisplayName: Music Config
+
+		Headers: {
+			Tracks: Tracks
+			Biomes: Biomes
+			Events: Events
+			Bosses: Bosses
+		}
+
+		Lieflight: {
+			Label: Lifelight
+			Tooltip: ""
+		}
+
+		SkeletronPrime: {
+			Label: Skeletron Prime
+			Tooltip: ""
+		}
+
+		MoonLord: {
+			Label: Moon Lord
+			Tooltip: ""
+		}
+
+		Betsy: {
+			Label: Betsy
+			Tooltip: ""
+		}
+
+		ChampionOfShadow: {
+			Label: Champion of Shadow
+			Tooltip: ""
+		}
+
+		Golem: {
+			Label: Golem
+			Tooltip: ""
+		}
+
+		Town: {
+			Tooltip: ""
+			Label: Town
+		}
+
+		EmpressOfLight: {
+			Tooltip: Determines which theme the Empress of Light uses.
+			Label: Empress of Light
+		}
+
+		WallOfFlesh: {
+			Tooltip: ""
+			Label: Wall of Flesh
+		}
+
+		Eridanus: {
+			Label: Eridanus
+			Tooltip: ""
+		}
+
+		Abom: {
+			Label: Abominationn
+			Tooltip: Determines which theme Abominationn uses.
+		}
+
+		Mutant: {
+			Label: Mutant
+			Tooltip: ""
+		}
+
+		EyeOfCthulhu: {
+			Label: Eye of Cthulhu
+			Tooltip: ""
+		}
+
+		BrainOfCthulhu: {
+			Label: Brain of Cthulhu
+			Tooltip: ""
+		}
+
+		MechBosses: {
+			Tooltip: Determines which theme the Mech Bosses use.
+			Label: Mech Bosses
+		}
+
+		QueenBee: {
+			Tooltip: ""
+			Label: Queen Bee
+		}
+
+		EaterOfWorlds: {
+			Tooltip: ""
+			Label: Eater of Worlds
+		}
+
+		Deviantt: {
+			Tooltip: ""
+			Label: Deviantt
+		}
+
+		Plantera: {
+			Label: Plantera
+			Tooltip: ""
+		}
+
+		Purity: {
+			Label: Forest
+			Tooltip: ""
+		}
+
+		Jungle: {
+			Label: Jungle
+			Tooltip: ""
+		}
+
+		UndergroundJungle: {
+			Label: Underground Jungle
+			Tooltip: ""
+		}
+
+		Crimson: {
+			Label: Crimson
+			Tooltip: ""
+		}
+
+		Corruption: {
+			Label: Corruption
+			Tooltip: ""
+		}
+
+		Space: {
+			Label: Space
+			Tooltip: ""
+		}
+
+		Desert: {
+			Label: Desert
+			Tooltip: ""
+		}
+
+		Tundra: {
+			Label: Tundra
+			Tooltip: ""
+		}
+
+		Hallow: {
+			Label: Hallow
+			Tooltip: ""
+		}
+
+		Ocean: {
+			Label: Ocean
+			Tooltip: ""
+		}
+
+		Baron: {
+			Label: Baron
+			Tooltip: ""
+		}
+
+		Dungeon: {
+			Tooltip: ""
+			Label: Dungeon
+		}
+
+		Mushroom: {
+			Tooltip: ""
+			Label: Mushroom
+		}
+
+		UndergroundHallow: {
+			Tooltip: ""
+			Label: Underground Hallow
+		}
+
+		Underground: {
+			Label: Underground
+			Tooltip: ""
+		}
+
+		PirateInvasion: {
+			Tooltip: ""
+			Label: Pirate Invasion
+		}
+
+		LunarPillars: {
+			Tooltip: ""
+			Label: Lunar Pillars
+		}
+
+		DukeFishron: {
+			Tooltip: ""
+			Label: Duke Fishron
+		}
+
+		UndergroundDesert: {
+			Label: Underground Desert
+			Tooltip: ""
+		}
+
+		UndergroundCorruption: {
+			Tooltip: ""
+			Label: Underground Corruption
+		}
+
+		UndergroundCrimson: {
+			Tooltip: ""
+			Label: Underground Crimson
+		}
+
+		Forest: {
+			Tooltip: ""
+			Label: Forest
+		}
+
+		UndergroundTundra: {
+			Label: Underground Tundra
+			Tooltip: ""
+		}
+
+		Underworld: {
+			Label: Underworld
+			Tooltip: ""
+		}
+
+		Rain: {
+			Label: Rain
+			Tooltip: ""
+		}
+
+		KingSlime: {
+			Label: King Slime
+			Tooltip: ""
+		}
+
+		Sandstorm: {
+			Label: Sandstorm
+			Tooltip: ""
+		}
+
+		Blizzard: {
+			Label: Blizzard
+			Tooltip: ""
+		}
+
+		Temple: {
+			Label: Temple
+			Tooltip: ""
+		}
+	}
+}
