@@ -1,5 +1,5 @@
 Replaces the music of 43 vanilla and Fargo's Souls bosses, events and biomes. 
-Depends entirely on Fargo's Souls, and is only active in Eternity Mode. 
+Can be used without Fargo's Souls for only the vanilla tracks.
 Config options to disable individual tracks.
 
 The following themes are replaced:

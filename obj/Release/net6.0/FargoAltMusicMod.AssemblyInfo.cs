@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FargoAltMusicMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8db489f17ca420d3a7f952f78fcf4fef4259792e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FargoAltMusicMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FargoAltMusicMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
