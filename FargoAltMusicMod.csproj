@@ -17,9 +17,4 @@
   <ItemGroup>
     <Folder Include="NPCs\" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="FargowiltasSouls">
-      <HintPath>C:\Users\jackl\Downloads\FargowiltasSouls.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>

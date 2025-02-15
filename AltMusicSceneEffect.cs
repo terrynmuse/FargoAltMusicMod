@@ -4,27 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
-using FargowiltasSouls;
 using Terraria;
 using Terraria.ID;
-using FargowiltasSouls.Core.Systems;
-using FargowiltasSouls.Content.Bosses.Champions.Cosmos;
-using FargowiltasSouls.Content.Bosses.Lifelight;
-using FargowiltasSouls.Content.Bosses.MutantBoss;
-using FargowiltasSouls.Content.Bosses.AbomBoss;
-using FargowiltasSouls.Content.Bosses.DeviBoss;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Events;
 using Terraria.Map;
 using Terraria.Net;
 using static Terraria.Main;
-using FargowiltasSouls.Content.Bosses.BanishedBaron;
 using Microsoft.CodeAnalysis;
 
 namespace FargoAltMusicMod
 {
     static class MusicUtils
     {
+        private static Mod souls = null;
+        public static Mod Souls
+        {
+            get
+            {
+                souls ??= ModLoader.GetMod("FargowiltasSouls");
+                return souls;
+            }
+        }
         public static NPC FindClosestBoss(int type)
         {
             float num = 99999;
@@ -38,6 +39,11 @@ namespace FargoAltMusicMod
                 }
             }
             return closestNPC;
+        }
+
+        public static NPC FindClosestSoulsBoss(string name)
+        {
+            return FindClosestBoss(Souls.Find<ModNPC>(name).Type);
         }
         
         public static bool ZoneShallow(this Player player) => player.ZoneDirtLayerHeight || player.ZoneOverworldHeight;
@@ -848,7 +854,7 @@ namespace FargoAltMusicMod
         public override int Music => MusicLoader.GetMusicSlot(Mod, $"Music/{MusicName}");
         public override bool IsSceneEffectActive(Player player)
         {
-            return WorldSavingSystem.EternityMode && Config && Active(player);
+            return /*WorldSavingSystem.EternityMode && */Config && Active(player);
         }
         public abstract bool Active(Player player);
     }
@@ -860,7 +866,9 @@ namespace FargoAltMusicMod
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<LifeChallenger>());
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChallenger");
             if (npc != null && npc.active && npc.life < npc.lifeMax / 2)
             {
                 return true;
@@ -876,7 +884,9 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Lieflight;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<LifeChallenger>());
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChallenger");
             if (npc != null && npc.active && npc.life >= npc.lifeMax / 2)
             {
                 return true;
@@ -937,7 +947,9 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Eridanus;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<CosmosChampion>());
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("CosmosChampion");
             if (npc != null)
             {
                 return true;
@@ -958,7 +970,9 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Abom != "Default";
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<AbomBoss>());
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("AbomBoss");
             if (npc != null)
             {
                 return true;
@@ -973,7 +987,9 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Mutant;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<MutantBoss>());
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("MutantBoss");
             if (npc != null)
             {
                 return true;
@@ -988,7 +1004,9 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Deviantt;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<DeviBoss>());
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("DeviBoss");
             if (npc != null)
             {
                 return true;
@@ -1219,9 +1237,11 @@ namespace FargoAltMusicMod
 
         public override bool Active(Player player)
         {
-            if (ModLoader.GetMod("FargowiltasSouls").Version < Version.Parse("1.6"))
+            if (MusicUtils.Souls == null)
                 return false;
-            NPC npc = MusicUtils.FindClosestBoss(ModContent.NPCType<BanishedBaron>());
+            if (MusicUtils.Souls.Version < Version.Parse("1.6"))
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
             if (npc != null&& npc.life >= npc.lifeMax * 0.66)
             {
                 return true;
@@ -1237,9 +1257,11 @@ namespace FargoAltMusicMod
 
         public override bool Active(Player player)
         {
-            if (ModLoader.GetMod("FargowiltasSouls").Version < Version.Parse("1.6"))
+            if (MusicUtils.Souls == null)
                 return false;
-            int index = NPC.FindFirstNPC(ModContent.NPCType<BanishedBaron>());
+            if (MusicUtils.Souls.Version < Version.Parse("1.6"))
+                return false;
+            int index = MusicUtils.Souls.Find<ModNPC>("BanishedBaron").Type;
             NPC npc = index >= 0 && index < Main.maxNPCs ? Main.npc[index] : null;
             if (npc != null && npc.life < npc.lifeMax * 0.66)
             {
