@@ -49,6 +49,9 @@ The following themes are replaced:
 -Temple (Castle Vein)
 -Underworld (Altars of Apostasy)
 
+VERSION 1.5.3
+-No longer strictly dependent on Fargo's Souls Mod or requires Eternity Mode
+
 VERSION 1.5.2
 -Default setting for all Souls Mod bosses is now Original
 -Added alternate track for Abominationn (Stigma) ;)
