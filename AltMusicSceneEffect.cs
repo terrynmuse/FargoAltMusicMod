@@ -8,8 +8,6 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.GameContent.Events;
-using Terraria.Map;
-using Terraria.Net;
 using static Terraria.Main;
 using Microsoft.CodeAnalysis;
 
@@ -18,11 +16,17 @@ namespace FargoAltMusicMod
     static class MusicUtils
     {
         private static Mod souls = null;
+        private static bool checkedSouls = false;
         public static Mod Souls
         {
             get
             {
-                souls ??= ModLoader.GetMod("FargowiltasSouls");
+                if (!checkedSouls)
+                {
+                    checkedSouls = true;
+                    if (ModLoader.HasMod("FargowiltasSouls"))
+                        souls = ModLoader.GetMod("FargowiltasSouls");
+                }
                 return souls;
             }
         }
@@ -43,6 +47,8 @@ namespace FargoAltMusicMod
 
         public static NPC FindClosestSoulsBoss(string name)
         {
+            if (MusicUtils.Souls == null)
+                return null;
             return FindClosestBoss(Souls.Find<ModNPC>(name).Type);
         }
         
@@ -866,8 +872,6 @@ namespace FargoAltMusicMod
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChallenger");
             if (npc != null && npc.active && npc.life < npc.lifeMax / 2)
             {
@@ -884,8 +888,6 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Lieflight;
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChallenger");
             if (npc != null && npc.active && npc.life >= npc.lifeMax / 2)
             {
@@ -947,8 +949,6 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Eridanus;
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("CosmosChampion");
             if (npc != null)
             {
@@ -970,8 +970,6 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Abom != "Default";
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("AbomBoss");
             if (npc != null)
             {
@@ -987,8 +985,6 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Mutant;
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("MutantBoss");
             if (npc != null)
             {
@@ -1004,8 +1000,6 @@ namespace FargoAltMusicMod
         public override bool Config => MusicConfig.Instance.Deviantt;
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("DeviBoss");
             if (npc != null)
             {
@@ -1237,8 +1231,6 @@ namespace FargoAltMusicMod
 
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             if (MusicUtils.Souls.Version < Version.Parse("1.6"))
                 return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
@@ -1257,8 +1249,6 @@ namespace FargoAltMusicMod
 
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls == null)
-                return false;
             if (MusicUtils.Souls.Version < Version.Parse("1.6"))
                 return false;
             int index = MusicUtils.Souls.Find<ModNPC>("BanishedBaron").Type;
