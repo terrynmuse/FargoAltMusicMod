@@ -12,7 +12,7 @@ The following themes are replaced:
 -Wall of Flesh (Your Best Nightmare)
 -Banished Baron (Death Odyssey)
 -Destroyer, Twins and Skeletron Prime (War Without Reason or Red Sun, depending on config)
--Lieflight (Spitfire/Kababies)
+-Lifelight (Spitfire/Kababies)
 -Plantera (God of the Dead/Unseen Ones or specimen:mechanical/AFTERLIFE, depending on config)
 -Betsy (Darkeater Midir)
 -Golem (Halls of Sacrilegious Remains)
