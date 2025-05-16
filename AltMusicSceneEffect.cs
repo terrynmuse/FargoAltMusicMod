@@ -1231,10 +1231,10 @@ namespace FargoAltMusicMod
 
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls.Version < Version.Parse("1.6"))
+            if (MusicUtils.Souls == null || MusicUtils.Souls.Version < Version.Parse("1.6"))
                 return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
-            if (npc != null&& npc.life >= npc.lifeMax * 0.66)
+            if (npc != null && npc.life >= npc.lifeMax * 0.66)
             {
                 return true;
             }
@@ -1249,7 +1249,7 @@ namespace FargoAltMusicMod
 
         public override bool Active(Player player)
         {
-            if (MusicUtils.Souls.Version < Version.Parse("1.6"))
+            if (MusicUtils.Souls == null || MusicUtils.Souls.Version < Version.Parse("1.6"))
                 return false;
             int index = MusicUtils.Souls.Find<ModNPC>("BanishedBaron").Type;
             NPC npc = index >= 0 && index < Main.maxNPCs ? Main.npc[index] : null;
