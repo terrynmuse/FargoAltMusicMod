@@ -20,7 +20,7 @@ The following themes are replaced:
 -Empress of Light (Death of God's Will or A Mother's Love, depending on config)
 -Moon Lord (You're Gonna Need a Bigger Ukulele)
 -Eridanus (Tenebre Rosso Sangue)
--Abominationn (WAR)
+-Abominationn (Stigma, WAR)
 -Mutant (ORDER)
 
 -Rain (Cyclogenesis)
