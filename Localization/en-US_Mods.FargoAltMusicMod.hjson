@@ -45,7 +45,7 @@ Configs: {
 		}
 
 		EmpressOfLight: {
-			Tooltip: Determines which theme the Empress of Light uses.
+			Tooltip: ""
 			Label: Empress of Light
 		}
 
@@ -61,7 +61,7 @@ Configs: {
 
 		Abom: {
 			Label: Abominationn
-			Tooltip: Determines which theme Abominationn uses.
+			Tooltip: ""
 		}
 
 		Mutant: {
@@ -80,7 +80,7 @@ Configs: {
 		}
 
 		MechBosses: {
-			Tooltip: Determines which theme the Mech Bosses use.
+			Tooltip: ""
 			Label: Mech Bosses
 		}
 
@@ -246,6 +246,11 @@ Configs: {
 
 		Temple: {
 			Label: Temple
+			Tooltip: ""
+		}
+
+		Cultist: {
+			Label: Lunatic Cultist
 			Tooltip: ""
 		}
 	}

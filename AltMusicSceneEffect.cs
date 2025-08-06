@@ -896,11 +896,31 @@ namespace FargoAltMusicMod
             return false;
         }
     }
+    class Cultist : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "titan_spawn";
+        public override bool Config => MusicConfig.Instance.Cultist;
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.CultistBoss);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
     class MoonManMithrix : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
-        public override string MusicName => "BiggerGuitar";
-        public override bool Config => MusicConfig.Instance.MoonLord;
+        public override string MusicName => MusicConfig.Instance.MoonLord switch
+        {
+            "Bigger Guitar" => "BiggerGuitar",
+            "GUARDIAN" => "titan_battle",
+            _ => "",
+        };
+        public override bool Config => MusicConfig.Instance.MoonLord != "Default";
         public override bool Active(Player player)
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.MoonLordCore);
@@ -1456,8 +1476,13 @@ namespace FargoAltMusicMod
     class Pillars1 : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => "Coalescence";
-        public override bool Config => MusicConfig.Instance.LunarPillars;
+        public override string MusicName => MusicConfig.Instance.LunarPillars switch
+        {
+            "Coalescence/con lentitud poderosa" => "Coalescence",
+            "Crumbling Tower" => "titan_tower",
+            _ => ""
+        };
+        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
         public override bool Active(Player player)
         {
             int pillars = MusicUtils.CountPillars();
@@ -1471,8 +1496,13 @@ namespace FargoAltMusicMod
     class Pillars2 : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => "ConLentitudPoderosa";
-        public override bool Config => MusicConfig.Instance.LunarPillars;
+        public override string MusicName => MusicConfig.Instance.LunarPillars switch
+        {
+            "Coalescence/con lentitud poderosa" => "Coalescence",
+            "Crumbling Tower" => "titan_tower",
+            _ => ""
+        };
+        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
         public override bool Active(Player player)
         {
             int pillars = MusicUtils.CountPillars();

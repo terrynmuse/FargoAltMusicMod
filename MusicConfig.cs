@@ -41,7 +41,7 @@ namespace FargoAltMusicMod
         public bool Baron;
 
         [DrawTicks]
-        [OptionStrings(new string[] { "Default", "War Without Reason", "Red Sun", "Red Sun (Instrumental)" })]
+        [OptionStrings(["Default", "War Without Reason", "Red Sun", "Red Sun (Instrumental)"])]
         [DefaultValue("War Without Reason")]
         public string MechBosses;
 
@@ -49,7 +49,7 @@ namespace FargoAltMusicMod
         public bool Lieflight;
 
         [DrawTicks]
-        [OptionStrings(new string[] { "Default", "God of the Dead", "AFTERLIFE" })]
+        [OptionStrings(["Default", "God of the Dead", "AFTERLIFE"])]
         [DefaultValue("God of the Dead")]
         public string Plantera;
 
@@ -63,18 +63,23 @@ namespace FargoAltMusicMod
         public bool DukeFishron;
 
         [DrawTicks]
-        [OptionStrings(new string[] { "Default", "A Mother's Love", "Death of God's Will", "Border of Life" })]
+        [OptionStrings(["Default", "A Mother's Love", "Death of God's Will", "Border of Life"])]
         [DefaultValue("A Mother's Love")]
         public string EmpressOfLight;
 
         [DefaultValue(true)]
-        public bool MoonLord;
+        public bool Cultist;
+
+        [DrawTicks]
+        [OptionStrings(["Default", "Bigger Guitar", "GUARDIAN"])]
+        [DefaultValue("GUARDIAN")]
+        public string MoonLord;
 
         [DefaultValue(false)]
         public bool Eridanus;
 
         [DrawTicks]
-        [OptionStrings(new string[] { "Default", "WAR", "Stigma" })]
+        [OptionStrings(["Default", "WAR", "Stigma"])]
         [DefaultValue("Default")]
         public string Abom;
 
@@ -92,8 +97,10 @@ namespace FargoAltMusicMod
         [DefaultValue(true)]
         public bool Blizzard;
 
-        [DefaultValue(true)]
-        public bool LunarPillars;
+        [DrawTicks]
+        [OptionStrings(["Default", "Coalescence/con lentitud poderosa", "Crumbling Tower"])]
+        [DefaultValue("Crumbling Tower")]
+        public string LunarPillars;
 
         [Header("Biomes")]
 
