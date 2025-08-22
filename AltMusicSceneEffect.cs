@@ -1498,7 +1498,7 @@ namespace FargoAltMusicMod
         public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
         public override string MusicName => MusicConfig.Instance.LunarPillars switch
         {
-            "Coalescence/con lentitud poderosa" => "Coalescence",
+            "Coalescence/con lentitud poderosa" => "ConLentitudPoderosa",
             "Crumbling Tower" => "titan_tower",
             _ => ""
         };
