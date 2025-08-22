@@ -82,6 +82,7 @@ namespace FargoAltMusicMod
         #region Vanilla Music Update
         public override void PostUpdateEverything()
         {
+            return;
             bool flag = false;
             bool flag2 = false;
             bool flag3 = false;
@@ -865,6 +866,47 @@ namespace FargoAltMusicMod
         public abstract bool Active(Player player);
     }
     #region Bosses
+
+    class Pillars1 : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => MusicConfig.Instance.LunarPillars switch
+        {
+            "Coalescence/con lentitud poderosa" => "Coalescence",
+            "Crumbling Tower" => "titan_tower",
+            _ => ""
+        };
+        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
+        public override bool Active(Player player)
+        {
+            int pillars = MusicUtils.CountPillars();
+            if (pillars > 2)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Pillars2 : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => MusicConfig.Instance.LunarPillars switch
+        {
+            "Coalescence/con lentitud poderosa" => "ConLentitudPoderosa",
+            "Crumbling Tower" => "titan_tower",
+            _ => ""
+        };
+        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
+        public override bool Active(Player player)
+        {
+            int pillars = MusicUtils.CountPillars();
+            if (pillars > 0 && pillars <= 2)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
     class LifelightP2 : MusicEffect
     {
         public override bool Config => MusicConfig.Instance.Lieflight;
@@ -1296,354 +1338,5 @@ namespace FargoAltMusicMod
         }
     }
     #endregion
-    class MyCastleTown : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
-        public override string MusicName => "MyCastleTown";
-        public override bool Config => MusicConfig.Instance.Town;
-        public override bool Active(Player player)
-        {
-            return player.townNPCs > 2 || VanillaMusic.Current == MusicID.TownDay || VanillaMusic.Current == MusicID.TownNight;
-        }
-    }
-    class Forest : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeLow;
-        public override string MusicName => "ScarletForest";
-        public override bool Config => MusicConfig.Instance.Forest;
-        public override bool Active(Player player)
-        {
-            return player.ZoneForest || VanillaMusic.Current == MusicID.OverworldDay || VanillaMusic.Current == MusicID.AltOverworldDay || VanillaMusic.Current == MusicID.WindyDay;
-        }
-    }
-    class Jungle : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
-        public override string MusicName => "Greenpath";
-        public override bool Config => MusicConfig.Instance.Jungle;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneJungle && player.ZoneShallow()) || VanillaMusic.Current == MusicID.Jungle || VanillaMusic.Current == MusicID.JungleNight)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class UndergroundJungle : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
-        public override string MusicName => "QueensGardens";
-        public override bool Config => MusicConfig.Instance.UndergroundJungle;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneRockLayerHeight && player.ZoneJungle) || VanillaMusic.Current == MusicID.JungleUnderground)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Crimson : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "Guts";
-        public override bool Config => MusicConfig.Instance.Crimson;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneCrimson && player.ZoneOverworldHeight) || VanillaMusic.Current == MusicID.Crimson)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Corruption : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "TheWorldLooksWhite";
-        public override bool Config => MusicConfig.Instance.Corruption;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneCorrupt && player.ZoneOverworldHeight) || VanillaMusic.Current == MusicID.Corruption)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Space : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
-        public override string MusicName => "QuietAndFalling";
-        public override bool Config => MusicConfig.Instance.Space;
-        public override bool Active(Player player)
-        {
-            if (player.ZoneNormalSpace || VanillaMusic.Current == MusicID.Space || VanillaMusic.Current == MusicID.SpaceDay)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Desert : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeLow;
-        public override string MusicName => "DancerInTheDarkness";
-        public override bool Config => MusicConfig.Instance.Desert;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneDesert && player.ZoneOverworldHeight) || VanillaMusic.Current == MusicID.Desert)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Tundra : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
-        public override string MusicName => "FirstSteps";
-        public override bool Config => MusicConfig.Instance.Tundra;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneSnow && player.ZoneShallow()) || VanillaMusic.Current == MusicID.Snow)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
 
-    class Hallow : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeLow;
-        public override string MusicName => "JoyOfRemembrance";
-        public override bool Config => MusicConfig.Instance.Hallow;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneHallow && player.ZoneShallow()) || VanillaMusic.Current == MusicID.TheHallow)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Ocean : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeLow;
-        public override string MusicName => "DeepBlueCalm";
-        public override bool Config => MusicConfig.Instance.Ocean;
-        public override bool Active(Player player)
-        {
-            if (player.ZoneBeach || VanillaMusic.Current == MusicID.Ocean)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-
-    class Rain : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
-        public override string MusicName => "Cyclogenesis";
-        public override bool Config => MusicConfig.Instance.Rain;
-        public override bool Active(Player player)
-        {
-            if (VanillaMusic.Current == MusicID.Rain || VanillaMusic.Current == MusicID.Monsoon)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Sandstorm : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
-        public override string MusicName => "SandsOfTideCombat";
-        public override bool Config => MusicConfig.Instance.Sandstorm;
-        public override bool Active(Player player)
-        {
-            if (VanillaMusic.Current == MusicID.Sandstorm)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-
-    class Pillars1 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.LunarPillars switch
-        {
-            "Coalescence/con lentitud poderosa" => "Coalescence",
-            "Crumbling Tower" => "titan_tower",
-            _ => ""
-        };
-        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
-        public override bool Active(Player player)
-        {
-            int pillars = MusicUtils.CountPillars();
-            if (pillars > 2)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Pillars2 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.LunarPillars switch
-        {
-            "Coalescence/con lentitud poderosa" => "ConLentitudPoderosa",
-            "Crumbling Tower" => "titan_tower",
-            _ => ""
-        };
-        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
-        public override bool Active(Player player)
-        {
-            int pillars = MusicUtils.CountPillars();
-            if (pillars > 0 && pillars <= 2)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class UndergroundHallow : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeLow;
-        public override string MusicName => "PurpleRain";
-        public override bool Config => MusicConfig.Instance.UndergroundHallow;
-        public override bool Active(Player player)
-        {
-            if ((player.ZoneHallow && player.ZoneRockLayerHeight) || VanillaMusic.Current == MusicID.UndergroundHallow)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Mushroom : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "TheyMightAswellBeDead";
-        public override bool Config => MusicConfig.Instance.Mushroom;
-        public override bool Active(Player player)
-        {
-            if (player.ZoneGlowshroom || VanillaMusic.Current == MusicID.Mushrooms)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Dungeon : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "MirrorTempleB";
-        public override bool Config => MusicConfig.Instance.Dungeon;
-        public override bool Active(Player player)
-        {
-            if (player.ZoneDungeon || VanillaMusic.Current == MusicID.Dungeon)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Temple : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "CastleVein";
-        public override bool Config => MusicConfig.Instance.Temple;
-        public override bool Active(Player player)
-        {
-            if (player.ZoneLihzhardTemple || VanillaMusic.Current == MusicID.Temple)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    /*
-    class PirateInvasion : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Event;
-        public override string MusicName => "DeathOdyssey";
-        public override bool Config => MusicConfig.Instance.PirateInvasion;
-        public override bool Active(Player player)
-        {
-            if (Main.invasionType == InvasionID.PirateInvasion || VanillaMusic.Current == MusicID.PirateInvasion)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    */
-    class Underground : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeLow;
-        public override string MusicName => "TerraPluviam";
-        public override bool Config => MusicConfig.Instance.Underground;
-        public override bool Active(Player player)
-        {
-            return ((player.ZoneNormalUnderground || player.ZoneNormalCaverns) || VanillaMusic.Current == MusicID.Underground);
-        }
-    }
-
-    class UndergroundCrimson : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "Glory";
-        public override bool Config => MusicConfig.Instance.UndergroundCrimson;
-        public override bool Active(Player player)
-        {
-            return (Main.hardMode && player.ZoneCrimson && player.ZoneUnderground()) || VanillaMusic.Current == MusicID.UndergroundCrimson;
-        }
-    }
-    class UndergroundCorruption : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "TheWorldLooksRedCalm";
-        public override bool Config => MusicConfig.Instance.UndergroundCrimson;
-        public override bool Active(Player player)
-        {
-            return (Main.hardMode && player.ZoneCorrupt && player.ZoneUnderground()) || VanillaMusic.Current == MusicID.UndergroundCorruption;
-        }
-    }
-    class UndergroundDesert : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override string MusicName => "SandsOfTideCalm";
-        public override bool Config => MusicConfig.Instance.UndergroundDesert;
-        public override bool Active(Player player)
-        {
-            return player.ZoneUndergroundDesert || VanillaMusic.Current == MusicID.UndergroundDesert;
-        }
-    }
-    class UndergroundTundra : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BiomeMedium;
-        public override string MusicName => "ScatteredAndLostCalm";
-        public override bool Config => MusicConfig.Instance.UndergroundTundra;
-        public override bool Active(Player player)
-        {
-            return (player.ZoneRockLayerHeight && player.ZoneSnow) || VanillaMusic.Current == MusicID.Snow;
-        }
-    }
-    class ULTRAKILL : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
-        public override string MusicName => "AltarsOfApostasyCalm";
-        public override bool Config => MusicConfig.Instance.Underworld;
-        public override bool Active(Player player)
-        {
-            return player.ZoneUnderworldHeight || VanillaMusic.Current == MusicID.Hell;
-        }
-    }
 }
