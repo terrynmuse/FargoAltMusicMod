@@ -11,7 +11,7 @@ using Terraria.GameContent.Events;
 using static Terraria.Main;
 using Microsoft.CodeAnalysis;
 
-namespace FargoAltMusicMod
+namespace TerryMusicMod
 {
     static class MusicUtils
     {
@@ -828,124 +828,265 @@ namespace FargoAltMusicMod
         }
         #endregion
     }
-    /*
-    public class CustomMusicSystem : ModSystem
-    {
-        public static int Music(string musicName) => MusicLoader.GetMusicSlot(FargoAltMusicMod.Instance, $"Music/{musicName}");
-        public override void Load()
-        {
-            OnNewMusicHook = new(UpdateAudio_DecideOnNewMusic, DecideOnNewMusicDetour);
-            OnNewMusicHook.Apply();
-        }
-        public override void Unload()
-        {
-            OnNewMusicHook.Undo();
-        }
-        public delegate void Orig_DecideOnNewMusic(Main self);
-
-        private static readonly MethodInfo UpdateAudio_DecideOnNewMusic = typeof(Main).GetMethod("UpdateAudio_DecideOnNewMusic", FargoSoulsUtil.UniversalBindingFlags);
-
-        Hook OnNewMusicHook;
-
-        internal static void DecideOnNewMusicDetour(Orig_DecideOnNewMusic orig, Main self)
-        {
-            orig(self);
-            VanillaMusic.Current = curMusic;
-        }
-    }
-    */
     abstract class MusicEffect : ModSceneEffect
     {
-        public abstract bool Config { get; }
         public abstract string MusicName { get; }
         public override int Music => MusicLoader.GetMusicSlot(Mod, $"Music/{MusicName}");
         public override bool IsSceneEffectActive(Player player)
         {
-            return /*WorldSavingSystem.EternityMode && */Config && Active(player);
+            return Active(player);
         }
         public abstract bool Active(Player player);
     }
     #region Bosses
 
-    class Pillars1 : MusicEffect
+    class TrojanSquirrel : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.LunarPillars switch
-        {
-            "Coalescence/con lentitud poderosa" => "Coalescence",
-            "Crumbling Tower" => "titan_tower",
-            _ => ""
-        };
-        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "HoloCureSuspect";
         public override bool Active(Player player)
         {
-            int pillars = MusicUtils.CountPillars();
-            if (pillars > 2)
+            NPC npc = MusicUtils.FindClosestSoulsBoss("TrojanSquirrel");
+            if (npc != null)
             {
                 return true;
             }
             return false;
         }
     }
-    class Pillars2 : MusicEffect
+    class KingSlime : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.LunarPillars switch
-        {
-            "Coalescence/con lentitud poderosa" => "ConLentitudPoderosa",
-            "Crumbling Tower" => "titan_tower",
-            _ => ""
-        };
-        public override bool Config => MusicConfig.Instance.LunarPillars != "Default";
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "rePrologue";
         public override bool Active(Player player)
         {
-            int pillars = MusicUtils.CountPillars();
-            if (pillars > 0 && pillars <= 2)
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.KingSlime);
+            if (npc != null)
             {
                 return true;
             }
             return false;
         }
     }
-    class LifelightP2 : MusicEffect
+    class EyeOfCthulhu : MusicEffect
     {
-        public override bool Config => MusicConfig.Instance.Lieflight;
-        public override string MusicName => "Father";
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "XNautFortress";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.EyeofCthulhu);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class CursedCoffin : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "ShiftingSandLand";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("CursedCoffin");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class EaterOfWorlds : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "LastBattleBallosMix";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.EaterofWorldsHead);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Brain : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "MotherBrain";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.BrainofCthulhu);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class QueenBee : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "RegnumCaelorumEtGehennaVerumCurNonAudimus";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenBee);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Skeletron : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "BadToTheBone";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.SkeletronHead);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Deerclops : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "NoHesitation";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.Deerclops);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Devi : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
+        public override string MusicName => "UsagiFlap";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("DeviBoss");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class WallOfFlesh : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "DemetoriNecrofantasia";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.WallofFlesh);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class QueenSlime : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "DededeDrumDashDeluxeCROWNED";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenSlimeBoss);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Baron : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "BREISXVsZeroDecisiveBattle2";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class SkeletronPrime : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "PACHAD";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.SkeletronPrime);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Twins : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "SoundAveStormRider";
+        public override bool Active(Player player)
+        {
+            NPC reti = MusicUtils.FindClosestBoss(NPCID.Retinazer);
+            NPC spaz = MusicUtils.FindClosestBoss(NPCID.Spazmatism);
+            if (reti != null || spaz != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Destroyer : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "DiverseSystemNightmareParadiseAbridged";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.TheDestroyer);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Lifelight : MusicEffect
+    {
+        public override string MusicName => "SEQUELcolonyKizuato";
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChallenger");
-            if (npc != null && npc.active && npc.life < npc.lifeMax / 2)
+            NPC npc = MusicUtils.FindClosestSoulsBoss("Lifelight");
+            if (npc != null)
             {
                 return true;
             }
             return false;
         }
+    }
+    class Plantera : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "Gekkasakuya";
 
-    }
-    class LifelightP1 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
-        public override string MusicName => "Heir";
-        public override bool Config => MusicConfig.Instance.Lieflight;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChallenger");
-            if (npc != null && npc.active && npc.life >= npc.lifeMax / 2)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Cultist : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "titan_spawn";
-        public override bool Config => MusicConfig.Instance.Cultist;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.CultistBoss);
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.Plantera);
             if (npc != null)
             {
                 return true;
@@ -953,46 +1094,10 @@ namespace FargoAltMusicMod
             return false;
         }
     }
-    class MoonManMithrix : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
-        public override string MusicName => MusicConfig.Instance.MoonLord switch
-        {
-            "Bigger Guitar" => "BiggerGuitar",
-            "GUARDIAN" => "titan_battle",
-            _ => "",
-        };
-        public override bool Config => MusicConfig.Instance.MoonLord != "Default";
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.MoonLordCore);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class DarkeaterBetsy : MusicEffect
+    class Golem : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "Midir";
-        public override bool Config => MusicConfig.Instance.Betsy;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.DD2Betsy);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class SansUndergolem : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "CastleVein2";
-        public override bool Config => MusicConfig.Instance.Golem;
+        public override string MusicName => "MEGALOVANIA";
         public override bool Active(Player player)
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Golem);
@@ -1004,11 +1109,206 @@ namespace FargoAltMusicMod
 
         }
     }
-    class TenebreRossoEridanus : MusicEffect
+    class Betsy : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "BetterCallSaul";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.DD2Betsy);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Fishron : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "CannonBallMythos";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.DukeFishron);
+            if (npc != null && npc.active)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class EmpressofLight : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "BorderOfLifeResurrectionButterfly";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.HallowBoss);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Cultist : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "Chokmah232";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.CultistBoss);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Pillars : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "OurOath";
+        public override bool Active(Player player)
+        {
+            int pillars = MusicUtils.CountPillars();
+            if (pillars > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class MoonLord : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
-        public override string MusicName => "TenebreRossoSangue";
-        public override bool Config => MusicConfig.Instance.Eridanus;
+        public override string MusicName => "FuryOfSet";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.MoonLordCore);
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class TimberChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "StardustSong";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("TimberChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class TerraChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "AriaLastBattle";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("TerraChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class NatureChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "MasahiroAokiFrostbite";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("NatureChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class LifeChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "conciliation";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class ShadowChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "ProteusRidley3";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("ShadowChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class EarthChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "Pompey";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("EarthChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class SpiritChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "SketchesOfPain";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("SpiritChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class WillChampion : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "MamoruKunHasBeenCursedWillForce";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestSoulsBoss("WillChampion");
+            if (npc != null)
+            {
+                return true;
+            }
+            return false;
+        }
+    }
+    class Eridanus : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
+        public override string MusicName => "SuddenDeath";
         public override bool Active(Player player)
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("CosmosChampion");
@@ -1020,16 +1320,10 @@ namespace FargoAltMusicMod
 
         }
     }
-    class AbomPrime : MusicEffect
+    class Abom : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
-        public override string MusicName => MusicConfig.Instance.Abom switch
-        {
-            "WAR" => "WAR",
-            "Stigma" => "Stigma",
-            _ => "",
-        };
-        public override bool Config => MusicConfig.Instance.Abom != "Default";
+        public override string MusicName => "Showdown";
         public override bool Active(Player player)
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("AbomBoss");
@@ -1040,297 +1334,15 @@ namespace FargoAltMusicMod
             return false;
         }
     }
-    class MutantPrime : MusicEffect
+    class Mutant : MusicEffect
     {
         public override SceneEffectPriority Priority => (SceneEffectPriority)9;
-        public override string MusicName => "ORDER";
-        public override bool Config => MusicConfig.Instance.Mutant;
+        private bool useAltMusic => Main.getGoodWorld && MusicConfig.Instance.MutantFtwZzz;
+        public override string MusicName => useAltMusic ? "BattleTrialsGlory" : "SupremeRulersCoronationOVERLORD";
         public override bool Active(Player player)
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("MutantBoss");
             if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class DevianttResurrection : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
-        public override string MusicName => "ResurrectionsFast";
-        public override bool Config => MusicConfig.Instance.Deviantt;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestSoulsBoss("DeviBoss");
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class FleshBrain : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "CHAOS";
-        public override bool Config => MusicConfig.Instance.BrainOfCthulhu;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.BrainofCthulhu);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class FleshEaternopticon : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "PANDEMONIUM";
-        public override bool Config => MusicConfig.Instance.EaterOfWorlds;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.EaterofWorldsHead);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class Bee22Knight : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "HiveKnight";
-        public override bool Config => MusicConfig.Instance.QueenBee;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenBee);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class WallOfFlowey : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "YourBestNightmare";
-        public override bool Config => MusicConfig.Instance.WallOfFlesh;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.WallofFlesh);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class RiskofKingSlime : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "Precipitation";
-        public override bool Config => MusicConfig.Instance.KingSlime;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.KingSlime);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class ChaosCthulhu : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "ChaosKing";
-        public override bool Config => MusicConfig.Instance.EyeOfCthulhu;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.EyeofCthulhu);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class EoLGabriel : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => MusicConfig.Instance.EmpressOfLight switch
-        {
-            "A Mother's Love" => Ceroba(),
-            "Death of God's Will" => "DeathOfGodsWill",
-            "Border of Life" => "BorderOfLife",
-            _ => "",
-        };
-        public static string Ceroba()
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.HallowBoss);
-            if (npc != null)
-            {
-                return npc.GetLifePercent() < 0.5f ? "Ceroba2" : "Ceroba1";
-            }
-            return "";
-        }
-        public override bool Config => MusicConfig.Instance.EmpressOfLight != "Default";
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.HallowBoss);
-            if (npc != null)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class MechSun : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.MechBosses switch
-        {
-            "War Without Reason" => WarWithoutReason(),
-            "Red Sun" => "RedSunVocal",
-            "Red Sun (Instrumental)" => "RedSunInstrumental",
-            _ => "",
-        };
-
-        public static List<int> MechIDs = new()
-        {
-            NPCID.SkeletronPrime,
-            NPCID.TheDestroyer,
-            NPCID.Retinazer,
-            NPCID.Spazmatism
-        };
-        public static string WarWithoutReason()
-        {
-            int mechs = NPC.downedMechBoss1 ? 1 : 0;
-            mechs += NPC.downedMechBoss2 ? 1 : 0;
-            mechs += NPC.downedMechBoss3 ? 1 : 0;
-
-            static string ABSectionPerPhase(string p1, string p2)
-            {
-                if (Main.npc.Any(n => n != null && n.active && MechIDs.Contains(n.type) && n.life < n.lifeMax / 2))
-                    return p2;
-                return p1;
-            }
-            if (mechs <= 0)
-                return ABSectionPerPhase("WarWithoutReasonA1", "WarWithoutReasonA2");
-            else if (mechs <= 1)
-                return ABSectionPerPhase("WarWithoutReasonB1", "WarWithoutReasonB2");
-            else
-                return "WarWithoutReasonC";
-        }
-        public override bool Config => MusicConfig.Instance.MechBosses != "Default";
-        public override bool Active(Player player)
-        {
-            bool anyMech = Main.npc.Any(n => n != null && n.active && MechIDs.Contains(n.type));
-            if (anyMech)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class PlanteraP1 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.Plantera switch
-        {
-            "God of the Dead" => "GodOfTheDeadP1",
-            "AFTERLIFE" => "SpecimenMechanical",
-            _ => "",
-        };
-        public override bool Config => MusicConfig.Instance.Plantera != "Default";
-
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.Plantera);
-            if (npc != null && npc.life > npc.lifeMax / 2)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class PlanteraP2 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => MusicConfig.Instance.Plantera switch
-        {
-            "God of the Dead" => Hades(),
-            "AFTERLIFE" => "AFTERLIFE",
-            _ => "",
-        };
-        public static string Hades()
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.Plantera);
-            return npc != null && npc.life <= npc.lifeMax / 4 ? "UnseenOnes" : "GodOfTheDeadP2";
-        }
-        public override bool Config => MusicConfig.Instance.Plantera != "Default";
-
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.Plantera);
-            if (npc != null && npc.life <= npc.lifeMax / 2)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class BaronP1 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => "DeathOdysseyAftermath";
-        public override bool Config => MusicConfig.Instance.Baron;
-
-        public override bool Active(Player player)
-        {
-            if (MusicUtils.Souls == null || MusicUtils.Souls.Version < Version.Parse("1.6"))
-                return false;
-            NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
-            if (npc != null && npc.life >= npc.lifeMax * 0.66)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class BaronP2 : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
-        public override string MusicName => "DeathOdyssey";
-        public override bool Config => MusicConfig.Instance.Baron;
-
-        public override bool Active(Player player)
-        {
-            if (MusicUtils.Souls == null || MusicUtils.Souls.Version < Version.Parse("1.6"))
-                return false;
-            int index = MusicUtils.Souls.Find<ModNPC>("BanishedBaron").Type;
-            NPC npc = index >= 0 && index < Main.maxNPCs ? Main.npc[index] : null;
-            if (npc != null && npc.life < npc.lifeMax * 0.66)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    class DeepFishron : MusicEffect
-    {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "DeepBlueCombat";
-        public override bool Config => MusicConfig.Instance.DukeFishron;
-        public override bool Active(Player player)
-        {
-            NPC npc = MusicUtils.FindClosestBoss(NPCID.DukeFishron);
-            if (npc != null && npc.active)
             {
                 return true;
             }

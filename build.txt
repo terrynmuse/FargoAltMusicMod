@@ -1,5 +1,5 @@
-displayName = Javyz' Fargo Music DLC
-author = Javyz
-version = 1.6.0.2
+displayName = Terry's Music Mod
+author = Javyz ft. Terry
+version = 1.0.0
 side = Client
-weakReferences  = FargowiltasSouls@1.7
+weakReferences  = FargowiltasSouls@1.8

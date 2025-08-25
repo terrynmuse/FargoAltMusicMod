@@ -1,0 +1,25 @@
+Configs: {
+	MusicConfig: {
+		DisplayName: Music Config
+
+		NowPlaying: {
+			Label: Show Now Playing
+			Tooltip: ""
+		}
+
+		DreamMusic: {
+			Label: Funny Dream Music
+			Tooltip: ""
+		}
+
+		ItsBrin: {
+			Label: IT'S BRIN
+			Tooltip: ""
+		}
+
+		MutantFtwZzz: {
+			Label: Mutant FTW Alt Music
+			Tooltip: ""
+		}
+	}
+}

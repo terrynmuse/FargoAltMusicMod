@@ -9,11 +9,11 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace FargoAltMusicMod
+namespace TerryMusicMod
 {
     public class MusicSystem : ModSystem
     {
-        public static int GetMusic(string name) => MusicLoader.GetMusicSlot(FargoAltMusicMod.Instance, $"Music/{name}");
+        public static int GetMusic(string name) => MusicLoader.GetMusicSlot(TerryMusicMod.Instance, $"Music/{name}");
 
         private const BindingFlags UniversalBindingFlags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
         public override void Load()
@@ -30,130 +30,166 @@ namespace FargoAltMusicMod
             switch (i)
             {
                 case MusicID.TownDay:
+                    i = GetMusic("Natsucore214");
+                    break;
+
                 case MusicID.TownNight:
-                    if (config.Town)
-                        i = GetMusic("MyCastleTown");
+                    i = GetMusic("BlueArchive198");
                     break;
 
                 case MusicID.OverworldDay:
                 case MusicID.AltOverworldDay:
-                case MusicID.WindyDay:
-                    if (config.Forest)
-                        i = GetMusic("ScarletForest");
+                    if (config.DreamMusic)
+                    {
+                        i = GetMusic("TranceMusicForRacingGame");
+                    }
+                    else
+                    {
+                        i = GetMusic("MischievousStep");
+                    }
                     break;
 
-                case MusicID.Space:
-                    if (config.Space)
-                        i = GetMusic("QuietAndFalling");
+                case MusicID.Night:
+                    i = GetMusic("BeneathTheMask");
+                    break;
+
+                case MusicID.WindyDay:
+                    i = GetMusic("LiteralClownMusic");
                     break;
 
                 case MusicID.Underground:
                 case MusicID.AltUnderground:
-                    if (config.Underground)
-                        i = GetMusic("TerraPluviam");
+                    i = GetMusic("SlipperySteps");
+                    break;
+
+                case MusicID.Desert:
+                case MusicID.UndergroundDesert:
+                    i = GetMusic("RockStar");
+                    break;
+
+                case MusicID.Snow:
+                case MusicID.Ice:
+                    i = GetMusic("FrozenHillside");
                     break;
 
                 case MusicID.Jungle:
                 case MusicID.JungleNight:
-                    if (config.Jungle)
-                        i = GetMusic("Greenpath");
+                    if (config.ItsBrin)
+                        i = GetMusic("MattMVSNewZeldaForestTempleMusicITSBRIN");
+                    else
+                        goto case MusicID.JungleUnderground;
                     break;
 
                 case MusicID.JungleUnderground:
-                    if (config.UndergroundJungle)
-                        i = GetMusic("QueensGardens");
-                    break;
-
-                case MusicID.Crimson:
-                    if (config.Crimson)
-                        i = GetMusic("Guts");
-                    break;
-
-                case MusicID.UndergroundCrimson:
-                    if (config.UndergroundCrimson)
-                        i = GetMusic("Glory");
-                    break;
-
-                case MusicID.Corruption:
-                    if (config.Corruption)
-                        i = GetMusic("TheWorldLooksWhite");
-                    break;
-
-                case MusicID.UndergroundCorruption:
-                    if (config.UndergroundCorruption)
-                        i = GetMusic("TheWorldLooksRedCalm");
-                    break;
-
-
-                case MusicID.Desert:
-                    if (config.Desert)
-                        i = GetMusic("DancerInTheDarkness");
-                    break;
-
-                case MusicID.UndergroundDesert:
-                    if (config.UndergroundDesert)
-                        i = GetMusic("SandsOfTideCalm");
-                    break;
-
-                case MusicID.Snow:
-                    if (config.Tundra)
-                        i = GetMusic("FirstSteps");
-                    break;
-
-                case MusicID.Ice:
-                    if (config.UndergroundTundra)
-                        i = GetMusic("ScatteredAndLostCalm");
+                    i = GetMusic("Brinstar");
                     break;
 
                 case MusicID.TheHallow:
-                    if (config.Hallow)
-                        i = GetMusic("JoyOfRemembrance");
+                    i = GetMusic("SkyHighBridge");
                     break;
 
                 case MusicID.UndergroundHallow:
-                    if (config.UndergroundHallow)
-                        i = GetMusic("PurpleRain");
+                    i = GetMusic("WarpDestination");
+                    break;
+
+                case MusicID.Corruption:
+                    i = GetMusic("WorldOfNothing");
+                    break;
+
+                case MusicID.UndergroundCorruption:
+                    i = GetMusic("RiverTwygzBed");
+                    break;
+
+                case MusicID.Crimson:
+                    i = GetMusic("ZeroMissionTourianKassil");
+                    break;
+
+                case MusicID.UndergroundCrimson:
+                    i = GetMusic("SuperMetroidTourian");
                     break;
 
                 case MusicID.Ocean:
-                case MusicID.OceanNight:
-                    if (config.Ocean)
-                        i = GetMusic("DeepBlueCalm");
+                    i = GetMusic("WateryGraves");
                     break;
 
-                case MusicID.Mushrooms:
-                    if (config.Mushroom)
-                        i = GetMusic("TheyMightAswellBeDead");
+                case MusicID.OceanNight:
+                    i = GetMusic("LowerSector4Kassil");
+                    break;
+
+                case MusicID.Space:
+                case MusicID.SpaceDay:
+                    i = GetMusic("ShadyShady");
                     break;
 
                 case MusicID.Hell:
-                    if (config.Underworld)
-                        i = GetMusic("AltarsOfApostasyCalm");
+                    i = GetMusic("TheOnlyThingTheyFearIsYou");
                     break;
 
-                // events
-                case MusicID.Rain:
-                    if (config.Rain)
-                        i = GetMusic("Cyclogenesis");
+                case MusicID.Mushrooms:
+                    i = GetMusic("AfterSchoolDessert");
                     break;
 
-                case MusicID.Sandstorm:
-                    if (config.Sandstorm)
-                        i = GetMusic("SandsOfTideCombat");
-                    break;
-
-                // dungeons
                 case MusicID.Dungeon:
-                    if (config.Dungeon)
-                        i = GetMusic("MirrorTempleB");
+                    i = GetMusic("CastleBleck");
                     break;
 
                 case MusicID.Temple:
-                    if (config.Temple)
-                        i = GetMusic("CastleVein");
+                    i = GetMusic("WanderingGhosts");
                     break;
 
+                case MusicID.Rain:
+                case MusicID.MorningRain:
+                    i = GetMusic("UnfamiliarPlace");
+                    break;
 
+                case MusicID.Monsoon:
+                    i = GetMusic("BlueArchive202");
+                    break;
+
+                case MusicID.Graveyard:
+                    i = GetMusic("GestaltAngst");
+                    break;
+
+                case MusicID.Eerie:
+                    i = GetMusic("StepOfTerror");
+                    break;
+
+                case MusicID.Sandstorm:
+                    i = GetMusic("EndlessCarnival");
+                    break;
+
+                case MusicID.GoblinInvasion:
+                    i = GetMusic("CamelliaGoldenWeekCombat");
+                    break;
+
+                case MusicID.Boss3:
+                    if (Main.invasionType == InvasionID.SnowLegion)
+                        i = GetMusic("UnwelcomeSchool");
+                    break;
+
+                case MusicID.PirateInvasion:
+                    i = GetMusic("DanDanInvader");
+                    break;
+
+                case MusicID.Eclipse:
+                    i = GetMusic("RaisiKTheBattleThunderblunder777");
+                    break;
+
+                case MusicID.PumpkinMoon:
+                    i = GetMusic("KoyoiWaHalloweenNight");
+                    break;
+
+                case MusicID.FrostMoon:
+                    i = GetMusic("TtydBattleChapter7");
+                    break;
+
+                case MusicID.OldOnesArmy:
+                    i = GetMusic("OperationDOTABATA");
+                    break;
+
+                case MusicID.MartianMadness:
+                    i = GetMusic("SystemInterior");
+                    break;
             }
             if (i >= Main.musicFade.Length)
                 return old;
