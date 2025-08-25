@@ -51,7 +51,7 @@ namespace TerryMusicMod
                 return null;
             return FindClosestBoss(Souls.Find<ModNPC>(name).Type);
         }
-        
+
         public static bool ZoneShallow(this Player player) => player.ZoneDirtLayerHeight || player.ZoneOverworldHeight;
 
         public static bool ZoneUnderground(this Player player) => player.ZoneDirtLayerHeight || player.ZoneRockLayerHeight;
@@ -72,7 +72,7 @@ namespace TerryMusicMod
             int stardust = NPC.CountNPCS(NPCID.LunarTowerStardust);
             return solar + vortex + nebula + stardust;
         }
-        
+
     }
 
     public class VanillaMusic : ModSystem
@@ -666,7 +666,7 @@ namespace TerryMusicMod
                                 break;
                             case 1:
                                 ugMusicHolder = 31;
-                               // musicFade[4] = 0f;
+                                // musicFade[4] = 0f;
                                 break;
                         }
                     }
@@ -849,6 +849,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("TrojanSquirrel");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "HoloCure ~ Suspect";
                 return true;
             }
             return false;
@@ -863,6 +864,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.KingSlime);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Sakuzyo ~ rePrologue";
                 return true;
             }
             return false;
@@ -877,6 +879,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.EyeofCthulhu);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Paper Mario The Thousand Year Door ~ X-Naut Fortress";
                 return true;
             }
             return false;
@@ -891,6 +894,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("CursedCoffin");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Super Mario 64 ~ Shifting Sand Land";
                 return true;
             }
             return false;
@@ -905,6 +909,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.EaterofWorldsHead);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "DM Dokuro ~ Last Battle (Ballos Mix)";
                 return true;
             }
             return false;
@@ -919,6 +924,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.BrainofCthulhu);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Super Metroid ~ Mother Brain";
                 return true;
             }
             return false;
@@ -933,6 +939,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenBee);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Regnum Caelorum Et Gehenna ~ Verum Cur Non Audimus";
                 return true;
             }
             return false;
@@ -947,6 +954,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.SkeletronHead);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "George Thorogood & The Destroyers ~ Bad to the Bone";
                 return true;
             }
             return false;
@@ -961,6 +969,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Deerclops);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
                 return true;
             }
             return false;
@@ -975,6 +984,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("DeviBoss");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Blue Archive ~ Usagi Flap";
                 return true;
             }
             return false;
@@ -989,6 +999,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.WallofFlesh);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Demetori ~ Necrofantasia";
                 return true;
             }
             return false;
@@ -1003,6 +1014,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenSlimeBoss);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Dedede's Drum Dash Deluxe ~ C-R-O-W-N-E-D";
                 return true;
             }
             return false;
@@ -1017,6 +1029,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "BREIS ~ X Vs Zero Decisive Battle 2";
                 return true;
             }
             return false;
@@ -1031,6 +1044,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.SkeletronPrime);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Blue Archive ~ PACHAD";
                 return true;
             }
             return false;
@@ -1046,6 +1060,7 @@ namespace TerryMusicMod
             NPC spaz = MusicUtils.FindClosestBoss(NPCID.Spazmatism);
             if (reti != null || spaz != null)
             {
+                TerryMusicSystem.nowPlayingString = "Sound Ave ~ Storm Rider";
                 return true;
             }
             return false;
@@ -1060,6 +1075,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.TheDestroyer);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Diverse System ~ Nightmare Paradise (Abridged)";
                 return true;
             }
             return false;
@@ -1074,6 +1090,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("Lifelight");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "SEQUEL colony ~ Kizuato";
                 return true;
             }
             return false;
@@ -1089,6 +1106,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Plantera);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Magia Record ~ Gekkasakuya";
                 return true;
             }
             return false;
@@ -1103,6 +1121,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Golem);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "UNDERTALE ~ MEGALOVANIA";
                 return true;
             }
             return false;
@@ -1118,6 +1137,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.DD2Betsy);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Better Call Saul ~ Intro";
                 return true;
             }
             return false;
@@ -1132,6 +1152,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.DukeFishron);
             if (npc != null && npc.active)
             {
+                TerryMusicSystem.nowPlayingString = "Megaman Zero ~ Cannon Ball (Mythos)";
                 return true;
             }
             return false;
@@ -1146,6 +1167,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.HallowBoss);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Touhou Perfect Cherry Blossom ~ Border of Life / Resurrection Butterfly";
                 return true;
             }
             return false;
@@ -1160,6 +1182,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.CultistBoss);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Blue Archive ~ OST 232 (Chokmah)";
                 return true;
             }
             return false;
@@ -1174,6 +1197,7 @@ namespace TerryMusicMod
             int pillars = MusicUtils.CountPillars();
             if (pillars > 0)
             {
+                TerryMusicSystem.nowPlayingString = "Blue Archive ~ Our Oath";
                 return true;
             }
             return false;
@@ -1188,6 +1212,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestBoss(NPCID.MoonLordCore);
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Blue Archive ~ FURY OF SET";
                 return true;
             }
             return false;
@@ -1202,6 +1227,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("TimberChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "HoloCure ~ Stardust Song";
                 return true;
             }
             return false;
@@ -1216,6 +1242,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("TerraChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Castlevania Aria of Sorrow ~ Last Battle";
                 return true;
             }
             return false;
@@ -1230,6 +1257,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("NatureChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Masahiro Aoki ~ Frostbite";
                 return true;
             }
             return false;
@@ -1244,6 +1272,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "BlazBlue ~ conciliation";
                 return true;
             }
             return false;
@@ -1258,6 +1287,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("ShadowChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Metroid Samus Returns ~ Proteus Ridley 3";
                 return true;
             }
             return false;
@@ -1272,6 +1302,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("EarthChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Zenless Zone Zero ~ Pompey";
                 return true;
             }
             return false;
@@ -1286,6 +1317,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("SpiritChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "The Binding of Isaac ~ Sketches of Pain";
                 return true;
             }
             return false;
@@ -1300,6 +1332,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("WillChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Mamoru-kun Wa Norowarete Shimatta! ~ Will Force";
                 return true;
             }
             return false;
@@ -1314,6 +1347,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("CosmosChampion");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ Sudden Death";
                 return true;
             }
             return false;
@@ -1329,6 +1363,7 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("AbomBoss");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = "Project Wingman ~ Showdown";
                 return true;
             }
             return false;
@@ -1344,11 +1379,11 @@ namespace TerryMusicMod
             NPC npc = MusicUtils.FindClosestSoulsBoss("MutantBoss");
             if (npc != null)
             {
+                TerryMusicSystem.nowPlayingString = useAltMusic ? "Zenless Zone Zero ~ Battle Trials (Glory)" : "Kirby's Return to Dream Land Deluxe ~ Supreme Ruler's Coronation - OVERLORD";
                 return true;
             }
             return false;
         }
     }
     #endregion
-
 }
