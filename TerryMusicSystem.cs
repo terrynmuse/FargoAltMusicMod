@@ -1,5 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.UI;
+using TerryMusicMod.UI;
 
 namespace TerryMusicMod
 {
@@ -7,6 +10,7 @@ namespace TerryMusicMod
 	{
 		public static string nowPlayingString = null;
         public static int lastFullVolumeSong = -1;
+        public static Color TextColor => new Color(255, 160, 230);
 
         public override void PostUpdateEverything()
         {
@@ -16,7 +20,15 @@ namespace TerryMusicMod
                 {
                     lastFullVolumeSong = Main.curMusic;
                     //Main.NewText($"{Main.curMusic} {lastFullVolumeSong} {Main.musicFade[Main.curMusic]} {nowPlayingString}");
-                    Main.NewText($"Now Playing: {nowPlayingString}", 255, 51, 153);
+                    if (MusicConfig.Instance.NotifyNowPlaying)
+                    {
+                        InGameNotificationsTracker.Clear();
+                        InGameNotificationsTracker.AddNotification(new NowPlayingNotif($"Now Playing: {nowPlayingString}"));
+                    }
+                    else
+                    {
+                        Main.NewText($"Now Playing: {nowPlayingString}", 255, 51, 153);
+                    }
                 }
             }
 

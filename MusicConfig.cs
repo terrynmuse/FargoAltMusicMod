@@ -18,6 +18,9 @@ namespace TerryMusicMod
         public bool NowPlaying;
 
         [DefaultValue(true)]
+        public bool NotifyNowPlaying;
+
+        [DefaultValue(true)]
         public bool DreamMusic;
 
         [DefaultValue(true)]
