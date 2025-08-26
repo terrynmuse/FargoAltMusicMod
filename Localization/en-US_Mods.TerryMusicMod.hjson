@@ -9,7 +9,7 @@ Configs: {
 
 		NotifyNowPlaying: {
 			Label: Use Notifications for Now Playing
-			Tooltip: "When disabled, prints Now Playing in chat instead"
+			Tooltip: When disabled, prints Now Playing in chat instead
 		}
 
 		DreamMusic: {
