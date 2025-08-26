@@ -2,16 +2,6 @@ Configs: {
 	MusicConfig: {
 		DisplayName: Music Config
 
-		NowPlaying: {
-			Label: Show Now Playing
-			Tooltip: ""
-		}
-
-		NotifyNowPlaying: {
-			Label: Use Notifications for Now Playing
-			Tooltip: When disabled, prints Now Playing in chat instead
-		}
-
 		DreamMusic: {
 			Label: Funny Dream Music
 			Tooltip: ""
