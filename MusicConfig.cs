@@ -9,9 +9,6 @@ namespace TerryMusicMod
         public override ConfigScope Mode => ConfigScope.ClientSide;
         public static MusicConfig Instance => ModContent.GetInstance<MusicConfig>();
 
-        [DefaultValue(true)]
-        public bool NowPlaying;
-
         [DefaultValue(2)]
         [DrawTicks]
         public NowPlayingID NowPlayingEnum;
