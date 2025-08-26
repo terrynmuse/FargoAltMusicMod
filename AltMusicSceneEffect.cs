@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
@@ -10,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Terraria.GameContent.Events;
 using static Terraria.Main;
 using Microsoft.CodeAnalysis;
+using System;
 
 namespace TerryMusicMod
 {
@@ -1087,7 +1084,9 @@ namespace TerryMusicMod
         public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override bool Active(Player player)
         {
-            NPC npc = MusicUtils.FindClosestSoulsBoss("Lifelight");
+            if (MusicUtils.Souls == null)
+                return false;
+            NPC npc = MusicUtils.FindClosestSoulsBoss(MusicUtils.Souls.Version >= Version.Parse("1.8") ? "Lifelight" : "LifeChallenger");
             if (npc != null)
             {
                 TerryMusicSystem.nowPlayingString = "SEQUEL colony ~ Kizuato";
