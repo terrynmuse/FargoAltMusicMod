@@ -26,5 +26,17 @@ Configs: {
 			Label: Mutant FTW Alt Music
 			Tooltip: ""
 		}
+
+		NowPlayingEnum: {
+			Label: Current Song Display
+			Tooltip: ""
+		}
+	}
+
+	NowPlayingID: {
+		Tooltip: ""
+		None.Label: None
+		Chat.Label: Chat
+		Notification.Label: Notification
 	}
 }

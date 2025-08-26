@@ -20,14 +20,15 @@ namespace TerryMusicMod
                 {
                     lastFullVolumeSong = Main.curMusic;
                     //Main.NewText($"{Main.curMusic} {lastFullVolumeSong} {Main.musicFade[Main.curMusic]} {nowPlayingString}");
-                    if (MusicConfig.Instance.NotifyNowPlaying)
+                    string displayString = $"Now Playing: {nowPlayingString}";
+                    if (MusicConfig.Instance.NowPlayingEnum == NowPlayingID.Notification)
                     {
                         InGameNotificationsTracker.Clear();
-                        InGameNotificationsTracker.AddNotification(new NowPlayingNotif($"Now Playing: {nowPlayingString}"));
+                        InGameNotificationsTracker.AddNotification(new NowPlayingNotif(displayString));
                     }
-                    else
+                    else if (MusicConfig.Instance.NowPlayingEnum == NowPlayingID.Chat)
                     {
-                        Main.NewText($"Now Playing: {nowPlayingString}", 255, 51, 153);
+                        Main.NewText(displayString, TextColor);
                     }
                 }
             }

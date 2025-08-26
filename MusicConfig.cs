@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using Terraria.ModLoader.Config;
 using Terraria.ModLoader;
 
@@ -17,8 +12,9 @@ namespace TerryMusicMod
         [DefaultValue(true)]
         public bool NowPlaying;
 
-        [DefaultValue(true)]
-        public bool NotifyNowPlaying;
+        [DefaultValue(2)]
+        [DrawTicks]
+        public NowPlayingID NowPlayingEnum;
 
         [DefaultValue(true)]
         public bool DreamMusic;

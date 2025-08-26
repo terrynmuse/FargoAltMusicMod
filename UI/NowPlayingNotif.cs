@@ -31,8 +31,10 @@ namespace TerryMusicMod.UI
                 if (timeLeft < 30)
                     return MathHelper.Lerp(0f, 1f, timeLeft / 30f);
 
-                if (timeLeft > 290)
-                    return MathHelper.Lerp(1f, 0f, (timeLeft - 290) / 10f);
+                const int durationOfFadeIn = 30;
+                const int timeLeftThreshold = MAX_TIMELEFT - durationOfFadeIn;
+                if (timeLeft > timeLeftThreshold)
+                    return MathHelper.Lerp(1f, 0f, (timeLeft - timeLeftThreshold) / durationOfFadeIn);
 
                 return 1f;
             }
