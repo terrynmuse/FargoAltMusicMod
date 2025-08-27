@@ -2,8 +2,6 @@ Replaces the music of 43 vanilla and Fargo's Souls bosses, events and biomes.
 Can be used without Fargo's Souls for only the vanilla tracks.
 Config options to disable individual tracks.
 
-dummy change to revert so i can create a branch idfk man i hate github i hate windows i hate git
-
 The following themes are replaced:
 -King Slime (Precipitation)
 -Eye of Cthulhu (Chaos King)
