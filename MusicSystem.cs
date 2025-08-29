@@ -196,10 +196,14 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Zenless Zone Zero ~ Camellia Golden Week (Combat)";
                     break;
 
+                case MusicID.SlimeRain:
+                    i = GetMusic("UnwelcomeSchool");
+                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ Unwelcome School";
+                    break;
+
                 case MusicID.Boss3:
                     if (Main.invasionType == InvasionID.SnowLegion)
-                        i = GetMusic("UnwelcomeSchool");
-                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ Unwelcome School";
+                        goto case MusicID.SlimeRain;
                     break;
 
                 case MusicID.PirateInvasion:
