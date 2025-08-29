@@ -884,7 +884,7 @@ namespace TerryMusicMod
     }
     class CursedCoffin : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
         public override string MusicName => "ShiftingSandLand";
         public override bool Active(Player player)
         {

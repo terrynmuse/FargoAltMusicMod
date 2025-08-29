@@ -191,6 +191,11 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Endless Carnival";
                     break;
 
+                case MusicID.Shimmer:
+                    i = GetMusic("SongOfTheAncientsDuet");
+                    TerryMusicSystem.nowPlayingString = "NieR ~ Song of the Ancients (Duet)";
+                    break;
+
                 case MusicID.GoblinInvasion:
                     i = GetMusic("CamelliaGoldenWeekCombat");
                     TerryMusicSystem.nowPlayingString = "Zenless Zone Zero ~ Camellia Golden Week (Combat)";
