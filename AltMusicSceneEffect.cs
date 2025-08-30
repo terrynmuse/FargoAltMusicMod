@@ -1002,6 +1002,21 @@ namespace TerryMusicMod
             return false;
         }
     }
+    class Dreadnautilus : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
+        public override string MusicName => "BloodStainedFaith";
+        public override bool Active(Player player)
+        {
+            NPC npc = MusicUtils.FindClosestBoss(NPCID.BloodNautilus);
+            if (npc != null)
+            {
+                TerryMusicSystem.nowPlayingString = "Blue Archive ~ Blood Stained Faith";
+                return true;
+            }
+            return false;
+        }
+    }
     class QueenSlime : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
