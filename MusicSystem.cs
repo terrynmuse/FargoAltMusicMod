@@ -240,6 +240,11 @@ namespace TerryMusicMod
                     i = GetMusic("SystemInterior");
                     TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ System Interior";
                     break;
+
+                case MusicID.Credits:
+                    i = GetMusic("ConstantModerato");
+                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ Constant Moderato";
+                    break;
             }
             if (i >= Main.musicFade.Length)
                 return old;
