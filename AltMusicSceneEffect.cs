@@ -61,13 +61,15 @@ namespace TerryMusicMod
             return (rectangle.Intersects(value));
         }
 
-        public static int CountPillars()
+        public static bool AnyPillarsInRange()
         {
-            int solar = NPC.CountNPCS(NPCID.LunarTowerSolar);
-            int vortex = NPC.CountNPCS(NPCID.LunarTowerVortex);
-            int nebula = NPC.CountNPCS(NPCID.LunarTowerNebula);
-            int stardust = NPC.CountNPCS(NPCID.LunarTowerStardust);
-            return solar + vortex + nebula + stardust;
+            int[] pillarTypes = [
+                NPCID.LunarTowerSolar,
+                NPCID.LunarTowerVortex,
+                NPCID.LunarTowerNebula,
+                NPCID.LunarTowerStardust,
+            ];
+            return Main.npc.Any(npc => npc.active && pillarTypes.Contains(npc.type) && BossMusicRange(npc));
         }
 
     }
@@ -1208,8 +1210,7 @@ namespace TerryMusicMod
         public override string MusicName => "OurOath";
         public override bool Active(Player player)
         {
-            int pillars = MusicUtils.CountPillars();
-            if (pillars > 0)
+            if (MusicUtils.AnyPillarsInRange())
             {
                 TerryMusicSystem.nowPlayingString = "Blue Archive ~ Our Oath";
                 return true;
