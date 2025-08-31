@@ -206,6 +206,16 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Unwelcome School";
                     break;
 
+                case MusicID.Boss1:
+                    i = GetMusic("HoloCureSuspect");
+                    TerryMusicSystem.nowPlayingString = "HoloCure ~ Suspect";
+                    break;
+
+                case MusicID.Boss2:
+                    i = GetMusic("NoHesitation");
+                    TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
+                    break;
+
                 case MusicID.Boss3:
                     if (Main.invasionType == InvasionID.SnowLegion)
                         goto case MusicID.SlimeRain;
@@ -214,6 +224,11 @@ namespace TerryMusicMod
                 case MusicID.Boss4:
                     i = GetMusic("Chokmah232");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ OST 232 (Chokmah)";
+                    break;
+
+                case MusicID.Boss5:
+                    i = GetMusic("FuryOfSet");
+                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ FURY OF SET";
                     break;
 
                 case MusicID.PirateInvasion:
