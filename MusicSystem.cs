@@ -211,6 +211,11 @@ namespace TerryMusicMod
                         goto case MusicID.SlimeRain;
                     break;
 
+                case MusicID.Boss4:
+                    i = GetMusic("Chokmah232");
+                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ OST 232 (Chokmah)";
+                    break;
+
                 case MusicID.PirateInvasion:
                     i = GetMusic("DanDanInvader");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ DAN! DAN!! INVADER!!!";
