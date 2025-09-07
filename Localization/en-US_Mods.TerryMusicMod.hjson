@@ -13,13 +13,18 @@ Configs: {
 		}
 
 		MutantFtwZzz: {
-			Label: Mutant FTW Alt Music
+			Label: Mutant High Difficulty Alt Music
 			Tooltip: ""
 		}
 
 		NowPlayingEnum: {
 			Label: Current Song Display
 			Tooltip: ""
+		}
+
+		ImmersiveBossSongs: {
+			Label: Immersive Boss Songs
+			Tooltip: Boss songs continue playing shortly after battle ends
 		}
 	}
 

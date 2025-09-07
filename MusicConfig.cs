@@ -14,6 +14,9 @@ namespace TerryMusicMod
         public NowPlayingID NowPlayingEnum;
 
         [DefaultValue(true)]
+        public bool ImmersiveBossSongs;
+
+        [DefaultValue(true)]
         public bool DreamMusic;
 
         [DefaultValue(true)]

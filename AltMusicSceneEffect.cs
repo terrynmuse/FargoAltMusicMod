@@ -830,6 +830,8 @@ namespace TerryMusicMod
     abstract class MusicEffect : ModSceneEffect
     {
         public abstract string MusicName { get; }
+        public int timer;
+        public const int IMMERSIVE_SONG_TIME = 300;
         public override int Music => MusicLoader.GetMusicSlot(Mod, $"Music/{MusicName}");
         public override bool IsSceneEffectActive(Player player)
         {
@@ -847,7 +849,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("TrojanSquirrel");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "HoloCure ~ Suspect";
                 return true;
             }
@@ -862,7 +868,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.KingSlime);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Sakuzyo ~ rePrologue";
                 return true;
             }
@@ -877,7 +887,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.EyeofCthulhu);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Paper Mario The Thousand Year Door ~ X-Naut Fortress";
                 return true;
             }
@@ -892,7 +906,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("CursedCoffin");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Super Mario 64 ~ Shifting Sand Land";
                 return true;
             }
@@ -907,7 +925,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.EaterofWorldsHead);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "DM Dokuro ~ Last Battle (Ballos Mix)";
                 return true;
             }
@@ -922,7 +944,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.BrainofCthulhu);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Super Metroid ~ Mother Brain";
                 return true;
             }
@@ -937,7 +963,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenBee);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Regnum Caelorum Et Gehenna ~ Verum Cur Non Audimus";
                 return true;
             }
@@ -952,7 +982,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.SkeletronHead);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "George Thorogood & The Destroyers ~ Bad to the Bone";
                 return true;
             }
@@ -967,7 +1001,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Deerclops);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
                 return true;
             }
@@ -982,7 +1020,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("DeviBoss");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Blue Archive ~ Usagi Flap";
                 return true;
             }
@@ -997,7 +1039,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.WallofFlesh);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Demetori ~ Necrofantasia";
                 return true;
             }
@@ -1012,7 +1058,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.BloodNautilus);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Blue Archive ~ Blood Stained Faith";
                 return true;
             }
@@ -1027,7 +1077,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.QueenSlimeBoss);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Dedede's Drum Dash Deluxe ~ C-R-O-W-N-E-D";
                 return true;
             }
@@ -1042,7 +1096,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("BanishedBaron");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "BREIS ~ X Vs Zero Decisive Battle 2";
                 return true;
             }
@@ -1057,7 +1115,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.SkeletronPrime);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Blue Archive ~ PACHAD";
                 return true;
             }
@@ -1088,7 +1150,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.TheDestroyer);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Diverse System ~ Nightmare Paradise (Abridged)";
                 return true;
             }
@@ -1105,7 +1171,11 @@ namespace TerryMusicMod
                 return false;
             NPC npc = MusicUtils.FindClosestSoulsBoss(MusicUtils.Souls.Version >= Version.Parse("1.8") ? "Lifelight" : "LifeChallenger");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "SEQUEL colony ~ Kizuato";
                 return true;
             }
@@ -1121,7 +1191,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Plantera);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Magia Record ~ Gekkasakuya";
                 return true;
             }
@@ -1136,7 +1210,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.Golem);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "UNDERTALE ~ MEGALOVANIA";
                 return true;
             }
@@ -1152,7 +1230,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.DD2Betsy);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Better Call Saul ~ Intro";
                 return true;
             }
@@ -1182,7 +1264,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.HallowBoss);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Touhou Perfect Cherry Blossom ~ Border of Life / Resurrection Butterfly";
                 return true;
             }
@@ -1197,7 +1283,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.CultistBoss);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Blue Archive ~ OST 232 (Chokmah)";
                 return true;
             }
@@ -1226,7 +1316,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestBoss(NPCID.MoonLordCore);
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Blue Archive ~ FURY OF SET";
                 return true;
             }
@@ -1241,7 +1335,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("TimberChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "HoloCure ~ Stardust Song";
                 return true;
             }
@@ -1256,7 +1354,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("TerraChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Castlevania Aria of Sorrow ~ Last Battle";
                 return true;
             }
@@ -1271,7 +1373,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("NatureChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Masahiro Aoki ~ Frostbite";
                 return true;
             }
@@ -1286,7 +1392,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("LifeChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "BlazBlue ~ conciliation";
                 return true;
             }
@@ -1301,7 +1411,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("ShadowChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Metroid Samus Returns ~ Proteus Ridley 3";
                 return true;
             }
@@ -1316,7 +1430,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("EarthChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Zenless Zone Zero ~ Pompey";
                 return true;
             }
@@ -1331,7 +1449,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("SpiritChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "The Binding of Isaac ~ Sketches of Pain";
                 return true;
             }
@@ -1346,7 +1468,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("WillChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Mamoru-kun Wa Norowarete Shimatta! ~ Will Force";
                 return true;
             }
@@ -1361,7 +1487,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("CosmosChampion");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ Sudden Death";
                 return true;
             }
@@ -1377,7 +1507,11 @@ namespace TerryMusicMod
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("AbomBoss");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = "Project Wingman ~ Showdown";
                 return true;
             }
@@ -1387,13 +1521,18 @@ namespace TerryMusicMod
     class Mutant : MusicEffect
     {
         public override SceneEffectPriority Priority => (SceneEffectPriority)9;
-        private bool useAltMusic => Main.getGoodWorld && MusicConfig.Instance.MutantFtwZzz;
+        private bool useAltMusic => MusicConfig.Instance.MutantFtwZzz && 
+            (MusicUtils.Souls.Version >= Version.Parse("1.8") ? (bool)MusicUtils.Souls.Call("MasochistMode") : Main.getGoodWorld);
         public override string MusicName => useAltMusic ? "BattleTrialsGlory" : "SupremeRulersCoronationOVERLORD";
         public override bool Active(Player player)
         {
             NPC npc = MusicUtils.FindClosestSoulsBoss("MutantBoss");
             if (npc != null)
+                timer = MusicConfig.Instance.ImmersiveBossSongs ? MusicEffect.IMMERSIVE_SONG_TIME : 6;
+            if (timer > 0)
             {
+                if (!MusicConfig.Instance.ImmersiveBossSongs || (npc == null && !(Main.LocalPlayer.active && Main.LocalPlayer.dead)))
+                    timer--;
                 TerryMusicSystem.nowPlayingString = useAltMusic ? "Zenless Zone Zero ~ Battle Trials (Glory)" : "Kirby's Return to Dream Land Deluxe ~ Supreme Ruler's Coronation - OVERLORD";
                 return true;
             }
