@@ -831,7 +831,7 @@ namespace TerryMusicMod
     {
         public abstract string MusicName { get; }
         public int timer;
-        public const int IMMERSIVE_SONG_TIME = 300;
+        public const int IMMERSIVE_SONG_TIME = 120;
         public override int Music => MusicLoader.GetMusicSlot(Mod, $"Music/{MusicName}");
         public override bool IsSceneEffectActive(Player player)
         {
