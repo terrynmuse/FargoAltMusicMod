@@ -161,7 +161,27 @@ namespace TerryMusicMod
         {
             get
             {
-                return OverrideKingSlimeTheme && OverrideEyeOfCthulhuTheme && OverrideEaterOfWorldsTheme && OverrideBrainOfCthulhuTheme && OverrideQueenBeeTheme && OverrideSkeletronTheme && OverrideDeerclopsTheme && OverrideWallOfFleshTheme && OverrideDreadnautilusTheme && OverrideQueenSlimeTheme && OverrideSkeletronPrimeTheme && OverrideTwinsTheme && OverrideDestroyerTheme && OverridePlanteraTheme && OverrideGolemTheme && OverrideBetsyTheme && OverrideDukeFishronTheme && OverrideEmpressOfLightTheme && OverrideLunaticCultistTheme && OverrideLunarPillarsTheme && OverrideMoonLordTheme;
+                return OverrideKingSlimeTheme &&
+                OverrideEyeOfCthulhuTheme &&
+                OverrideEaterOfWorldsTheme &&
+                OverrideBrainOfCthulhuTheme &&
+                OverrideQueenBeeTheme &&
+                OverrideSkeletronTheme &&
+                OverrideDeerclopsTheme &&
+                OverrideWallOfFleshTheme &&
+                OverrideDreadnautilusTheme &&
+                OverrideQueenSlimeTheme &&
+                OverrideSkeletronPrimeTheme &&
+                OverrideTwinsTheme &&
+                OverrideDestroyerTheme &&
+                OverridePlanteraTheme &&
+                OverrideGolemTheme &&
+                OverrideBetsyTheme &&
+                OverrideDukeFishronTheme &&
+                OverrideEmpressOfLightTheme &&
+                OverrideLunaticCultistTheme &&
+                OverrideLunarPillarsTheme &&
+                OverrideMoonLordTheme;
             }
             set
             {
@@ -292,7 +312,23 @@ namespace TerryMusicMod
         {
             get
             {
-                return OverrideTrojanSquirrelTheme && OverrideCursedCoffinTheme && OverrideDevianttTheme && OverrideBanishedBaronTheme && OverrideLifelightTheme && OverrideTimberChampionTheme && OverrideTerraChampionTheme && OverrideNatureChampionTheme && OverrideLifeChampionTheme && OverrideShadowChampionTheme && OverrideEarthChampionTheme && OverrideSpiritChampionTheme && OverrideWillChampionTheme && OverrideEridanusTheme && OverrideAbominationnTheme && OverrideMutantTheme && MutantFtwZzz;
+                return OverrideTrojanSquirrelTheme &&
+                OverrideCursedCoffinTheme &&
+                OverrideDevianttTheme &&
+                OverrideBanishedBaronTheme &&
+                OverrideLifelightTheme &&
+                OverrideTimberChampionTheme &&
+                OverrideTerraChampionTheme &&
+                OverrideNatureChampionTheme &&
+                OverrideLifeChampionTheme &&
+                OverrideShadowChampionTheme &&
+                OverrideEarthChampionTheme &&
+                OverrideSpiritChampionTheme &&
+                OverrideWillChampionTheme &&
+                OverrideEridanusTheme &&
+                OverrideAbominationnTheme &&
+                OverrideMutantTheme &&
+                MutantFtwZzz;
             }
             set
             {
