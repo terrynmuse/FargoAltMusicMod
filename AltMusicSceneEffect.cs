@@ -837,7 +837,7 @@ namespace TerryMusicMod
         {
             return Active(player);
         }
-        public override float GetWeight(Player player) => 0.51f;
+        public override float GetWeight(Player player) => 0.6f;
         public abstract bool MyMusicConfig { get; }
         public abstract NPC TryGetActiveNPC { get; }
         public abstract string DisplayMusicName { get; }
