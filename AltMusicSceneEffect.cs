@@ -1112,6 +1112,14 @@ namespace TerryMusicMod
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("TimberChampion");
         public override string DisplayMusicName => "HoloCure ~ Stardust Song";
     }
+    class TimberChampionHead : MusicEffect
+    {
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override string MusicName => "StardustSong";
+        public override bool MyMusicConfig => MusicConfig.Instance.OverrideTimberChampionTheme;
+        public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("TimberChampionHead");
+        public override string DisplayMusicName => "HoloCure ~ Stardust Song";
+    }
 
     class TerraChampion : MusicEffect
     {
