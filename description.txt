@@ -84,6 +84,9 @@ Abomination: Project Wingman ~ Showdown
 Mutant: Kirby's Return to Dream Land Deluxe ~ Supreme Ruler's Coronation - OVERLORD
 Mutant (alt): Zenless Zone Zero ~ Battle Trials (Glory)
 
+Update V1.0.1.15
+-Fix "Now Playing:" appearing with no song sometimes
+
 Update V1.0.1.12
 -Fix Trojan Squirrel music not working
 
