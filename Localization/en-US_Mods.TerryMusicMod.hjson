@@ -17,6 +17,11 @@ Configs: {
 			Tooltip: ""
 		}
 
+		ClownMusic: {
+			Label: Clown Music
+			Tooltip: ""
+		}
+
 		NowPlayingEnum: {
 			Label: Current Song Display
 			Tooltip: ""

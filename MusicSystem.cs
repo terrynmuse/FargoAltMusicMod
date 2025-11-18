@@ -59,8 +59,16 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.WindyDay:
-                    i = GetMusic("LiteralClownMusic");
-                    TerryMusicSystem.nowPlayingString = "Actual Literal Clown Music";
+                    if (config.ClownMusic)
+                    {
+                        i = GetMusic("LiteralClownMusic");
+                        TerryMusicSystem.nowPlayingString = "Actual Literal Clown Music";
+                    }
+                    else
+                    {
+                        i = GetMusic("FoolishDays");
+                        TerryMusicSystem.nowPlayingString = "Blue Archive ~ Foolish Days";
+                    }
                     break;
 
                 case MusicID.Underground:
