@@ -59,15 +59,15 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.WindyDay:
-                    if (config.ClownMusic)
-                    {
-                        i = GetMusic("LiteralClownMusic");
-                        TerryMusicSystem.nowPlayingString = "Actual Literal Clown Music";
-                    }
-                    else
+                    if (config.CopyrightMode)
                     {
                         i = GetMusic("FoolishDays");
                         TerryMusicSystem.nowPlayingString = "Blue Archive ~ Foolish Days";
+                    }
+                    else
+                    {
+                        i = GetMusic("LiteralClownMusic");
+                        TerryMusicSystem.nowPlayingString = "Actual Literal Clown Music";
                     }
                     break;
 
@@ -149,8 +149,16 @@ namespace TerryMusicMod
 
                 case MusicID.Space:
                 case MusicID.SpaceDay:
-                    i = GetMusic("ShadyShady");
-                    TerryMusicSystem.nowPlayingString = "Sakuzyo ~ ShadyShady";
+                    if (config.CopyrightMode)
+                    {
+                        i = GetMusic("AuroraPalace");
+                        TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ Aurora Palace";
+                    }
+                    else
+                    {
+                        i = GetMusic("ShadyShady");
+                        TerryMusicSystem.nowPlayingString = "Sakuzyo ~ ShadyShady";
+                    }
                     break;
 
                 case MusicID.Hell:

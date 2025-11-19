@@ -873,10 +873,10 @@ namespace TerryMusicMod
     class KingSlime : MusicEffect
     {
         public override SceneEffectPriority Priority => SceneEffectPriority.BossLow;
-        public override string MusicName => "rePrologue";
+        public override string MusicName => MusicConfig.Instance.CopyrightMode ? "SupremeRulersCoronationOVERLORD" : "rePrologue";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideKingSlimeTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestBoss(NPCID.KingSlime);
-        public override string DisplayMusicName => "Sakuzyo ~ rePrologue";
+        public override string DisplayMusicName => MusicConfig.Instance.CopyrightMode ? "Kirby RTDL Deluxe ~ Supreme Ruler's Coronation - OVERLORD" : "Sakuzyo ~ rePrologue";
     }
 
     class EyeOfCthulhu : MusicEffect

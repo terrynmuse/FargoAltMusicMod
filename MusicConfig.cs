@@ -23,7 +23,7 @@ namespace TerryMusicMod
         public bool ItsBrin;
 
         [DefaultValue(true)]
-        public bool ClownMusic;
+        public bool CopyrightMode;
 
         [Header("$Mods.TerryMusicMod.Configs.MusicConfig.Headers.VanillaMusicOverrides")]
 
