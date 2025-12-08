@@ -217,6 +217,11 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Zenless Zone Zero ~ Camellia Golden Week (Combat)";
                     break;
 
+                case MusicID.TheTowers:
+                    i = GetMusic("OurOath");
+                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ Our Oath";
+                    break;
+
                 case MusicID.SlimeRain:
                     i = GetMusic("UnwelcomeSchool");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Unwelcome School";
@@ -228,13 +233,15 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.Boss2:
-                    i = GetMusic("NoHesitation");
-                    TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
+                    i = GetMusic("DemetoriNecrofantasia");
+                    TerryMusicSystem.nowPlayingString = "Demetori ~ Necrofantasia";
                     break;
 
                 case MusicID.Boss3:
                     if (Main.invasionType == InvasionID.SnowLegion)
                         goto case MusicID.SlimeRain;
+                    i = GetMusic("DiverseSystemNightmareParadiseAbridged");
+                    TerryMusicSystem.nowPlayingString = "Diverse System ~ Nightmare Paradise (Abridged)";
                     break;
 
                 case MusicID.Boss4:
@@ -243,6 +250,36 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.Boss5:
+                    i = GetMusic("RegnumCaelorumEtGehennaVerumCurNonAudimus");
+                    TerryMusicSystem.nowPlayingString = "Regnum Caelorum Et Gehenna ~ Verum Cur Non Audimus";
+                    break;
+
+                case MusicID.Deerclops:
+                    i = GetMusic("NoHesitation");
+                    TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
+                    break;
+
+                case MusicID.QueenSlime:
+                    i = GetMusic("DededeDrumDashDeluxeCROWNED");
+                    TerryMusicSystem.nowPlayingString = "Dedede's Drum Dash Deluxe ~ C-R-O-W-N-E-D";
+                    break;
+
+                case MusicID.Plantera:
+                    i = GetMusic("Gekkasakuya");
+                    TerryMusicSystem.nowPlayingString = "Magia Record ~ Gekkasakuya";
+                    break;
+
+                case MusicID.EmpressOfLight:
+                    i = GetMusic("BorderOfLifeResurrectionButterfly");
+                    TerryMusicSystem.nowPlayingString = "Touhou PCB ~ Border of Life / Resurrection Butterfly";
+                    break;
+
+                case MusicID.DukeFishron:
+                    i = GetMusic("CannonBallMythos");
+                    TerryMusicSystem.nowPlayingString = "Megaman Zero ~ Cannon Ball (Mythos)";
+                    break;
+
+                case MusicID.LunarBoss:
                     i = GetMusic("FuryOfSet");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ FURY OF SET";
                     break;
@@ -277,6 +314,8 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ System Interior";
                     break;
 
+                case MusicID.Title:
+                case MusicID.MenuMusic:
                 case MusicID.Credits:
                     i = GetMusic("ConstantModerato");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Constant Moderato";
