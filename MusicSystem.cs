@@ -228,8 +228,8 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.Boss1:
-                    i = GetMusic("HoloCureSuspect");
-                    TerryMusicSystem.nowPlayingString = "HoloCure ~ Suspect";
+                    i = GetMusic("XNautFortress");
+                    TerryMusicSystem.nowPlayingString = "Paper Mario TTYD ~ X-Naut Fortress";
                     break;
 
                 case MusicID.Boss2:
@@ -320,6 +320,13 @@ namespace TerryMusicMod
                     i = GetMusic("ConstantModerato");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Constant Moderato";
                     break;
+            }
+            if (TerryMusicMod.Instance.moddedMusicDict.ContainsKey(i))
+            {
+                var tuple = TerryMusicMod.Instance.moddedMusicDict[i];
+                //Main.NewText($"get! {i} {tuple.ToString()}");
+                i = GetMusic(tuple.Item1);
+                TerryMusicSystem.nowPlayingString = tuple.Item2;
             }
             if (i >= Main.musicFade.Length)
                 return old;

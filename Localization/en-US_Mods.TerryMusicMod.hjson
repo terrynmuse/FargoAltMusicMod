@@ -32,6 +32,11 @@ Configs: {
 			Tooltip: Boss songs continue playing shortly after battle ends
 		}
 
+		OverrideModdedMusicBoxes: {
+			Label: Override Modded Music & Boxes
+			Tooltip: If enabled, modded music boxes will play the replaced music instead. Disable this and below toggles to fully turn off playing for modded bosses.
+		}
+
 		OverrideTrojanSquirrelTheme: {
 			Label: Override Trojan Squirrel Theme
 			Tooltip: If enabled, plays HoloCure ~ Suspect.
