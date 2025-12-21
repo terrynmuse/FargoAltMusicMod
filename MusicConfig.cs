@@ -22,6 +22,13 @@ namespace TerryMusicMod
         [DefaultValue(true)]
         public bool ItsBrin;
 
+        [DefaultValue(true)]
+        [ReloadRequired]
+        public bool OverrideModdedMusicBoxes;
+
+        [DefaultValue(true)]
+        public bool CopyrightMode;
+
         [Header("$Mods.TerryMusicMod.Configs.MusicConfig.Headers.VanillaMusicOverrides")]
 
         [DefaultValue(true)]

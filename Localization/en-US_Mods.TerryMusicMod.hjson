@@ -17,6 +17,11 @@ Configs: {
 			Tooltip: ""
 		}
 
+		CopyrightMode: {
+			Label: Copyright-Safe Mode
+			Tooltip: ""
+		}
+
 		NowPlayingEnum: {
 			Label: Current Song Display
 			Tooltip: ""
@@ -25,6 +30,11 @@ Configs: {
 		ImmersiveBossSongs: {
 			Label: Immersive Boss Songs
 			Tooltip: Boss songs continue playing shortly after battle ends
+		}
+
+		OverrideModdedMusicBoxes: {
+			Label: Override Modded Music & Boxes
+			Tooltip: If enabled, modded music boxes will play the replaced music instead. Disable this and below toggles to fully turn off playing for modded bosses.
 		}
 
 		OverrideTrojanSquirrelTheme: {
@@ -230,8 +240,20 @@ Configs: {
 
 	NowPlayingID: {
 		Tooltip: ""
-		None.Label: None
-		Chat.Label: Chat
-		Notification.Label: Notification
+
+		None: {
+			Label: None
+			Tooltip: ""
+		}
+
+		Chat: {
+			Label: Chat
+			Tooltip: ""
+		}
+
+		Notification: {
+			Label: Notification
+			Tooltip: ""
+		}
 	}
 }

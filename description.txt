@@ -10,6 +10,7 @@ Overworld (Day): He Is Just Very Lucky ~ Trance Music For Racing Game
 Overworld (Day, alt): Blue Archive ~ Mischievous Step
 Overworld (Night): Persona 5 ~ Beneath the Mask
 Windy Day: Actual Literal Clown Music
+Windy Day (alt): Blue Archive ~ Foolish Days
 Underground: Kirby's Return to Dream Land ~ Slippery Steps
 Desert: Kirby 64 ~ Rock Star
 Snow / Ice: Kirby Air Ride ~ Frozen Hillside
@@ -24,6 +25,7 @@ Underground Crimson: Super Metroid ~ Tourian
 Ocean (Day): Plants vs Zombies ~ Watery Graves
 Ocean (Night): Metroid Fusion ~ Lower Sector 4 (Arranged by Kassil)
 Space: Sakuzyo ~ ShadyShady
+Space (alt): Rabi-Ribi ~ Aurora Palace
 Hell: DOOM Eternal ~ The Only Thing They Fear Is You
 Mushroom Biome: Blue Archive ~ After School Dessert
 Dungeon: Super Paper Mario ~ Castle Bleck
@@ -83,6 +85,12 @@ Eridanus: Rabi-Ribi ~ Sudden Death
 Abomination: Project Wingman ~ Showdown
 Mutant: Kirby's Return to Dream Land Deluxe ~ Supreme Ruler's Coronation - OVERLORD
 Mutant (alt): Zenless Zone Zero ~ Battle Trials (Glory)
+
+Update V1.0.1.17
+-Add Copyright-Safe Mode
+
+Update V1.0.1.15
+-Fix "Now Playing:" appearing with no song sometimes
 
 Update V1.0.1.12
 -Fix Trojan Squirrel music not working

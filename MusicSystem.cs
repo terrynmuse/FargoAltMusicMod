@@ -59,8 +59,16 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.WindyDay:
-                    i = GetMusic("LiteralClownMusic");
-                    TerryMusicSystem.nowPlayingString = "Actual Literal Clown Music";
+                    if (config.CopyrightMode)
+                    {
+                        i = GetMusic("FoolishDays");
+                        TerryMusicSystem.nowPlayingString = "Blue Archive ~ Foolish Days";
+                    }
+                    else
+                    {
+                        i = GetMusic("LiteralClownMusic");
+                        TerryMusicSystem.nowPlayingString = "Actual Literal Clown Music";
+                    }
                     break;
 
                 case MusicID.Underground:
@@ -141,8 +149,16 @@ namespace TerryMusicMod
 
                 case MusicID.Space:
                 case MusicID.SpaceDay:
-                    i = GetMusic("ShadyShady");
-                    TerryMusicSystem.nowPlayingString = "Sakuzyo ~ ShadyShady";
+                    if (config.CopyrightMode)
+                    {
+                        i = GetMusic("AuroraPalace");
+                        TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ Aurora Palace";
+                    }
+                    else
+                    {
+                        i = GetMusic("ShadyShady");
+                        TerryMusicSystem.nowPlayingString = "Sakuzyo ~ ShadyShady";
+                    }
                     break;
 
                 case MusicID.Hell:
@@ -201,24 +217,31 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Zenless Zone Zero ~ Camellia Golden Week (Combat)";
                     break;
 
+                case MusicID.TheTowers:
+                    i = GetMusic("OurOath");
+                    TerryMusicSystem.nowPlayingString = "Blue Archive ~ Our Oath";
+                    break;
+
                 case MusicID.SlimeRain:
                     i = GetMusic("UnwelcomeSchool");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Unwelcome School";
                     break;
 
                 case MusicID.Boss1:
-                    i = GetMusic("HoloCureSuspect");
-                    TerryMusicSystem.nowPlayingString = "HoloCure ~ Suspect";
+                    i = GetMusic("XNautFortress");
+                    TerryMusicSystem.nowPlayingString = "Paper Mario TTYD ~ X-Naut Fortress";
                     break;
 
                 case MusicID.Boss2:
-                    i = GetMusic("NoHesitation");
-                    TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
+                    i = GetMusic("DemetoriNecrofantasia");
+                    TerryMusicSystem.nowPlayingString = "Demetori ~ Necrofantasia";
                     break;
 
                 case MusicID.Boss3:
                     if (Main.invasionType == InvasionID.SnowLegion)
                         goto case MusicID.SlimeRain;
+                    i = GetMusic("DiverseSystemNightmareParadiseAbridged");
+                    TerryMusicSystem.nowPlayingString = "Diverse System ~ Nightmare Paradise (Abridged)";
                     break;
 
                 case MusicID.Boss4:
@@ -227,6 +250,36 @@ namespace TerryMusicMod
                     break;
 
                 case MusicID.Boss5:
+                    i = GetMusic("RegnumCaelorumEtGehennaVerumCurNonAudimus");
+                    TerryMusicSystem.nowPlayingString = "Regnum Caelorum Et Gehenna ~ Verum Cur Non Audimus";
+                    break;
+
+                case MusicID.Deerclops:
+                    i = GetMusic("NoHesitation");
+                    TerryMusicSystem.nowPlayingString = "Jujutsu Kaisen ~ No Hesitation (Abridged)";
+                    break;
+
+                case MusicID.QueenSlime:
+                    i = GetMusic("DededeDrumDashDeluxeCROWNED");
+                    TerryMusicSystem.nowPlayingString = "Dedede's Drum Dash Deluxe ~ C-R-O-W-N-E-D";
+                    break;
+
+                case MusicID.Plantera:
+                    i = GetMusic("Gekkasakuya");
+                    TerryMusicSystem.nowPlayingString = "Magia Record ~ Gekkasakuya";
+                    break;
+
+                case MusicID.EmpressOfLight:
+                    i = GetMusic("BorderOfLifeResurrectionButterfly");
+                    TerryMusicSystem.nowPlayingString = "Touhou PCB ~ Border of Life / Resurrection Butterfly";
+                    break;
+
+                case MusicID.DukeFishron:
+                    i = GetMusic("CannonBallMythos");
+                    TerryMusicSystem.nowPlayingString = "Megaman Zero ~ Cannon Ball (Mythos)";
+                    break;
+
+                case MusicID.LunarBoss:
                     i = GetMusic("FuryOfSet");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ FURY OF SET";
                     break;
@@ -261,10 +314,19 @@ namespace TerryMusicMod
                     TerryMusicSystem.nowPlayingString = "Rabi-Ribi ~ System Interior";
                     break;
 
+                case MusicID.Title:
+                case MusicID.MenuMusic:
                 case MusicID.Credits:
                     i = GetMusic("ConstantModerato");
                     TerryMusicSystem.nowPlayingString = "Blue Archive ~ Constant Moderato";
                     break;
+            }
+            if (TerryMusicMod.Instance.moddedMusicDict.ContainsKey(i))
+            {
+                var tuple = TerryMusicMod.Instance.moddedMusicDict[i];
+                //Main.NewText($"get! {i} {tuple.ToString()}");
+                i = GetMusic(tuple.Item1);
+                TerryMusicSystem.nowPlayingString = tuple.Item2;
             }
             if (i >= Main.musicFade.Length)
                 return old;
