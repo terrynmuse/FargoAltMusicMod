@@ -328,6 +328,49 @@ namespace TerryMusicMod
                 i = GetMusic(tuple.Item1);
                 TerryMusicSystem.nowPlayingString = tuple.Item2;
             }
+            // Special-case combined Champions music slot
+            // Detect active champion NPCs directly
+            // and map to the matching internal music slot.
+            if (MusicUtils.Souls != null && TerryMusicMod.Instance.ChampionsSlot != 0 && i == TerryMusicMod.Instance.ChampionsSlot)
+            {
+                i = GetMusic("StardustSong");
+                if (MusicUtils.FindClosestSoulsBoss("TimberChampion") != null || MusicUtils.FindClosestSoulsBoss("TimberChampionHead") != null)
+                {
+                    i = GetMusic("StardustSong");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("TerraChampion") != null)
+                {
+                    i = GetMusic("AriaLastBattle");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("NatureChampion") != null)
+                {
+                    i = GetMusic("MasahiroAokiFrostbite");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("LifeChampion") != null)
+                {
+                    i = GetMusic("conciliation");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("ShadowChampion") != null)
+                {
+                    i = GetMusic("ProteusRidley3");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("EarthChampion") != null)
+                {
+                    i = GetMusic("Pompey");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("SpiritChampion") != null)
+                {
+                    i = GetMusic("SketchesOfPain");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("WillChampion") != null)
+                {
+                    i = GetMusic("MamoruKunHasBeenCursedWillForce");
+                }
+                else if (MusicUtils.FindClosestSoulsBoss("CosmosChampion") != null)
+                {
+                    i = GetMusic("SuddenDeath");
+                }
+            }
             if (i >= Main.musicFade.Length)
                 return old;
             return i;

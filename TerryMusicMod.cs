@@ -7,6 +7,7 @@ namespace TerryMusicMod
 	public class TerryMusicMod : Mod
 	{
 		internal static TerryMusicMod Instance;
+        public int ChampionsSlot = 0;
 		public override void Load()
 		{
 			Instance = this;
@@ -39,11 +40,11 @@ namespace TerryMusicMod
                     "BREISXVsZeroDecisiveBattle2",
                     "BREIS ~ X Vs Zero Decisive Battle 2"
                 );
-                TryMapMusic(
-                    MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Champions"),
-                    "StardustSong",
-                    "HoloCure ~ Stardust Song"
-                );
+                // Store the combined Champions slot for special-casing in the
+                // music override logic. Do NOT map it to a single song here;
+                // instead `MusicSystem.OverrideMusicID` will inspect which
+                // champion is active and choose the correct internal track.
+                ChampionsSlot = MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Champions");
                 TryMapMusic(
                     MusicLoader.GetMusicSlot(musicMod, "Assets/Music/Laevateinn_P1"),
                     "Showdown",

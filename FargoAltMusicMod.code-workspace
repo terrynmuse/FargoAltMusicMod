@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "name": "FargoAltMusicMod",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "dotnet.defaultSolution": "TerryMusicMod.sln",
+    "files.exclude": {
+      "**/bin": true,
+      "**/obj": true
+    }
+  }
+}

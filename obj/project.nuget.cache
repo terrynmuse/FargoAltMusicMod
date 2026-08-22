@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "adPbxBLBZ44=",
+  "dgSpecHash": "bItWnXqY6s4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dariu\\OneDrive\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\TerryMusicMod\\TerryMusicMod.csproj",
+  "projectFilePath": "/home/darrchiu/.local/share/Terraria/tModLoader/ModSources/TerryMusicMod/TerryMusicMod.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\dariu\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+    "/home/darrchiu/.nuget/packages/tmodloader.codeassist/0.1.5/tmodloader.codeassist.0.1.5.nupkg.sha512"
   ],
   "logs": []
 }

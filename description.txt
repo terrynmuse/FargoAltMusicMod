@@ -86,6 +86,10 @@ Abomination: Project Wingman ~ Showdown
 Mutant: Kirby's Return to Dream Land Deluxe ~ Supreme Ruler's Coronation - OVERLORD
 Mutant (alt): Zenless Zone Zero ~ Battle Trials (Glory)
 
+Update V1.6.1.4
+- Why is the version so high????? idk its been forever since i touched this
+- Fixed Champ songs not working
+
 Update V1.0.1.17
 -Add Copyright-Safe Mode
 
