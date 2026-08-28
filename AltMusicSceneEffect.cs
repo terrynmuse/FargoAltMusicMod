@@ -1106,7 +1106,7 @@ namespace TerryMusicMod
 
     class TimberChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "StardustSong";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideTimberChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("TimberChampion");
@@ -1123,7 +1123,7 @@ namespace TerryMusicMod
 
     class TerraChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "AriaLastBattle";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideTerraChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("TerraChampion");
@@ -1132,7 +1132,7 @@ namespace TerryMusicMod
 
     class NatureChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "MasahiroAokiFrostbite";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideNatureChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("NatureChampion");
@@ -1141,7 +1141,7 @@ namespace TerryMusicMod
 
     class LifeChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "conciliation";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideLifeChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("LifeChampion");
@@ -1150,7 +1150,7 @@ namespace TerryMusicMod
 
     class ShadowChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "ProteusRidley3";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideShadowChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("ShadowChampion");
@@ -1159,7 +1159,7 @@ namespace TerryMusicMod
 
     class EarthChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "Pompey";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideEarthChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("EarthChampion");
@@ -1168,7 +1168,7 @@ namespace TerryMusicMod
 
     class SpiritChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "SketchesOfPain";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideSpiritChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("SpiritChampion");
@@ -1177,7 +1177,7 @@ namespace TerryMusicMod
 
     class WillChampion : MusicEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.BossMedium;
+        public override SceneEffectPriority Priority => SceneEffectPriority.BossHigh;
         public override string MusicName => "MamoruKunHasBeenCursedWillForce";
         public override bool MyMusicConfig => MusicConfig.Instance.OverrideWillChampionTheme;
         public override NPC TryGetActiveNPC => MusicUtils.FindClosestSoulsBoss("WillChampion");
